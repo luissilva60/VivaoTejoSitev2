@@ -1,0 +1,262 @@
+.img-Logo {
+    width: 190px; 
+    height: 55px;
+    margin-top: 50px;
+    margin-left: 9%; 
+}
+
+.menuHamburguer {
+    width: 30px;
+    height: 25px;
+    margin-top: 0px; 
+    margin-left: 1020px;
+    margin-bottom: 25px; 
+}
+
+header{
+    
+}
+
+.container {
+    position: relative;
+}
+
+.imgMain {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    margin-top: 3%;
+}
+
+.imgMainText {
+    position: absolute;
+    width: 585px;
+    height: 130px;
+    top: 400px;
+    left: 200px;
+}
+
+.botaoSM {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    left: 205px;
+    margin-top: 65px;
+}
+
+.setaScroll {
+    position: relative;
+    width: 28px;
+    height: 35px;
+    margin-left: 735px;
+    margin-top: 152px;
+}
+
+.seccaoRio {
+    position: relative;
+    width: 1100px;
+    height: 470px;
+    margin-left: 185px;
+    margin-top: 400px;
+}
+
+.viajaPelas{
+    position: relative;
+    width: 800px;
+    height: 70px;
+    margin-left: 320px;
+    margin-top: 350px;
+}
+
+.viajaFoto{
+    position: relative;
+    width: 750px;
+    height: 450px;
+    margin-left: 130px;
+    margin-top: 25px;
+}
+
+.sideImageLeft{
+    position: absolute;
+    width: 150px;
+    height: 370px;
+    margin-top: 65px;
+    margin-left: 130px;
+}
+
+.leftArrow{
+    position: relative;
+    width: 50px;
+    height: 40px;
+    margin-bottom: 200px;
+    margin-left: 160px;
+}
+
+.sideImageRight{
+    position: absolute;
+    width: 150px;
+    height: 370px;
+    margin-top: 65px;
+    margin-left: 65px;
+}
+
+.rightArrow{
+    position: relative;
+    width: 50px;
+    height: 40px;
+    margin-bottom: 200px;
+    margin-left: 145px;
+}
+
+.botaoVM{
+    width: 200px;
+    height: 50px;
+    margin-top: 35px;
+    margin-left: 620px;
+}
+
+.seccaoLoja{
+    width: 1100px;
+    height: 470px;
+    margin-left: 185px;
+    margin-top: 400px;
+}
+
+.backToTop{
+    position: relative;
+    width: 75px; 
+    height: 75px;
+    margin-top: 200px;
+    margin-left: 1210px;
+    margin-bottom: -250px; 
+}
+
+.rectangleFooter{
+    position: absolute;
+    width: 1520px;
+    height: 250px;
+    margin-top: 350px;
+    margin-left: -10px;
+}
+
+.quemSomosText{
+    position: relative;
+    width: 150px;
+    height: 100px;
+    margin-left: 150px;
+    margin-top: 420px
+}
+
+.eventosText{
+    position: relative;
+    width: 120px;
+    height: 74px;
+    margin-left: 100px;
+    margin-bottom: 25px;
+}
+
+.galeriaText{
+    position: relative;
+    width: 95px;
+    height: 95px;
+    margin-left: 85px;
+    margin-bottom: 5px;
+}
+
+.lojaText{
+    position: relative;
+    width: 95px;
+    height: 95px;
+    margin-left: 85px;
+    margin-bottom: 5px;
+}
+
+.contactosText{
+    position: relative;
+    width: 115px;
+    height: 70px;
+    margin-left: 85px;
+    margin-bottom: 31px;
+}
+
+.segueText{
+    position: relative;
+    width: 120px;
+    height: 95px;
+    margin-left: 85px;
+    margin-bottom: 8px;
+}
+
+
+body{
+    font-family: Arial, Arial, Helvetica, sans-serif;
+}
+
+.dropdown{
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #115c92;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.dropdown-lists{
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.dropdown a{
+    padding: 8px; 
+    text-decoration: none;
+    font-size: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+.dropdown a:hover, .dropdown a:focus {
+    color: whitesmoke;
+}
+
+.hamburguer{
+    position: relative;
+    color: #115c92;
+    margin-left: 1020px;
+    top: -17px;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.dropdown .buttonX{
+    position: relative;
+    top: 50px;
+    left: 1350px;
+    font-size: 50px;
+    color: #fff;
+}
+
+@media screen and (max-height:600px) {
+    .dropdown .buttonX {
+        font-size: 220px;
+    }
+}
+
+.img-WhiteLogo{
+    position: relative;
+    top: -210px;
+    left: -525px;
+    width: 190px; 
+    height: 55px;
+}
+
+.menuText{
+    position: relative;
+    text-decoration: none;
+    
+}

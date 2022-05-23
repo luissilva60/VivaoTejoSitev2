@@ -222,7 +222,7 @@ body{
     color: #fff;
 }
 
-.dropdown a:hover, .dropdown a:focus {
+.dropdown-lists a:hover, .dropdown-lists a:focus {
     color: whitesmoke;
     zoom: 125%;
 }
@@ -237,8 +237,8 @@ body{
 }
 
 .dropdown .buttonX{
-    margin-left: 88.5%;
-    margin-top: 3%;
+    margin-left: 89.1%;
+    margin-top: 3.7%;
     position: flex;
     font-size: 45px;
     color: #fff;

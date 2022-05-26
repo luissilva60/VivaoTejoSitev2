@@ -1,4 +1,5 @@
-.webContainer{
+.container {
+    position: relative;
     width:100%;
     min-width:1000px;
     height:auto;
@@ -21,10 +22,6 @@ html {
     margin-top: 0px; 
     margin-left: 1020px;
     margin-bottom: 25px; 
-}
-
-.container {
-    position: relative;
 }
 
 .imgMain {

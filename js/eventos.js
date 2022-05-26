@@ -15,6 +15,7 @@ var directionsService;
 var markerEvento;
 var markers = [];
 var map;
+var bounds;
 
 function initMap() {
 
@@ -58,10 +59,12 @@ function initMap() {
     document.getElementById("btnrota").addEventListener("click", () => {
         calculateAndDisplayRoute(directionsService, directionsRenderer)
     });
-    markerBounds()
+    markerBounds();
 
 
 }
+
+var pos;
 
 function currentLocation () {
     const infoWindowGeolocation = new google.maps.InfoWindow()
@@ -69,7 +72,7 @@ function currentLocation () {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                const pos = {
+                pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude,
                 };
@@ -77,7 +80,8 @@ function currentLocation () {
                     position: new google.maps.LatLng(pos.lat, pos.lng),
                     map: map
                 });
-                markers.push(markerGeolocation.position)
+                markers.push(pos);
+
 
                 markerGeolocation.setIcon('../images/location.png')
                 google.maps.event.addListener(markerGeolocation, 'click', (function(marker) {
@@ -97,7 +101,8 @@ function currentLocation () {
         handleLocationError(false, infoWindoGeolocation, map.getCenter());
     }
 }
-var pos;
+
+
 
 
 
@@ -149,7 +154,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function markerBounds(){
-    var bounds = new google.maps.LatLngBounds();
+    bounds = new google.maps.LatLngBounds();
     for (var i = 0; i < markers.length; i++) {
         bounds.extend(markers[i]);
     }

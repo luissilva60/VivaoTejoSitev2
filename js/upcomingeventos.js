@@ -14,16 +14,16 @@ async function getEventos() {
 
     document.getElementById("textoEventoTres").textContent = eventos[2].data + "            LOCAL:  " + eventos[2].eventos_local_name
 
-    const evento1Button = document.getElementById('evento1');
-    const evento2Button = document.getElementById('evento2');
-    const evento3Button = document.getElementById('evento3');
+    const evento1Button = document.getElementById('evento1btn');
+    const evento2Button = document.getElementById('evento2btn');
+    const evento3Button = document.getElementById('evento3btn');
     evento1Button.addEventListener("click", function (){
         window.localStorage.setItem('evento', JSON.stringify(eventos[0]));
     })
-    evento3Button.addEventListener("click", function (){
+    evento2Button.addEventListener("click", function (){
         window.localStorage.setItem('evento', JSON.stringify(eventos[1]));
     })
-    evento2Button.addEventListener("click", function (){
+    evento3Button.addEventListener("click", function (){
         window.localStorage.setItem('evento', JSON.stringify(eventos[2]));
     })
 

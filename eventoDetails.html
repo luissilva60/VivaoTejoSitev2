@@ -55,18 +55,11 @@
                 <option value="TRANSIT">Transportes</option>
             </select>
         </div>
-        <!--<select id="mode" style="position: absolute; top:45px;" class="col-md-4">
-            <option value="DRIVING">Condução</option>
-            <option value="WALKING">Caminhar</option>
-            <option value="BICYCLING">Bicicleta</option>
-            <option value="TRANSIT">Trasportes</option>
-        </select>
--->
-        <button onclick="calculateAndDisplayRoute()" id="btnrota">Rota</button>
+        <button id="btnrota">Rota</button>
     </div>
 </body>
 
 <script src="./js/eventos.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyAeXJMCul0dV0qlry9bSDTx9K9dKRLJZSY&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyAeXJMCul0dV0qlry9bSDTx9K9dKRLJZSY&libraries=visualization,places&callback=initMap"></script>
 
 </html>

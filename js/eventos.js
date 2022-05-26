@@ -49,8 +49,10 @@ function initMap() {
 
 
 
-    currentLocation()
 
+
+    currentLocation()
+    directionsRenderer.setMap(map);
     directionsRenderer.setOptions( { suppressMarkers: true } );
     calculateAndDisplayRoute(directionsService, directionsRenderer);
     document.getElementById("btnrota").addEventListener("click", () => {
@@ -62,7 +64,7 @@ function initMap() {
 }
 
 function currentLocation () {
-    const infoWindoGeolocation = new google.maps.InfoWindow()
+    const infoWindowGeolocation = new google.maps.InfoWindow()
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -80,8 +82,8 @@ function currentLocation () {
                 markerGeolocation.setIcon('../images/location.png')
                 google.maps.event.addListener(markerGeolocation, 'click', (function(marker) {
                     return function() {
-                        infoWindoGeolocation.setContent("Você está aqui");
-                        infoWindoGeolocation.open(map, marker);
+                        infoWindowGeolocation.setContent("Você está aqui");
+                        infoWindowGeolocation.open(map, marker);
                         lastOpenedInfoWindow = infoWindoGeolocation;
                     }
                 })(markerGeolocation));
@@ -101,7 +103,6 @@ var pos;
 
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-    directionsRenderer.setMap(map);
     const selectedMode = document.getElementById("mode").value
 
     if (navigator.geolocation) {

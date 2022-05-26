@@ -4,15 +4,11 @@ console.log(evento.data);
 
 
 
-
-
-
-
 document.getElementById("eventos_data").textContent = "Data: " + evento.data
 console.log(evento.data)
 document.getElementById("eventos_name").textContent = evento.eventos_name
-document.getElementById("eventos_starttime").textContent = evento.eventos_starttime
-document.getElementById("eventos_endtime").textContent = evento.eventos_endtime
+document.getElementById("eventos_starttime").textContent = "Início do evento: " + evento.eventos_starttime
+document.getElementById("eventos_endtime").textContent = "Fim do evento: " + evento.eventos_endtime
 document.getElementById("eventos_info").textContent = evento.eventos_info
 
 

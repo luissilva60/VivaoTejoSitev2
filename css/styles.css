@@ -287,6 +287,7 @@ body{
 .tituloEventoUm{
     position: relative;
     font-size: large;
+    font-weight: bolder;
     color: #115c92;
     font-family: Arial, Helvetica, sans-serif;
     top: -560px;
@@ -305,6 +306,7 @@ body{
 .tituloEventoDois{
     position: relative;
     font-size: large;
+    font-weight: bolder;
     color: #115c92;
     font-family: Arial, Helvetica, sans-serif;
     top: -520px;
@@ -323,6 +325,7 @@ body{
 .tituloEventoTres{
     position: relative;
     font-size: large;
+    font-weight: bolder;
     color: #115c92;
     font-family: Arial, Helvetica, sans-serif;
     top: -480px;
@@ -381,6 +384,7 @@ body{
 .eventoUmTitulo{
     position: relative;
     font-size: 35px;
+    font-weight: bolder;
     color: #115c92;
     font-family: Arial, Helvetica, sans-serif;
     top: -580px;
@@ -408,6 +412,7 @@ body{
 .eventoDoisTitulo{
     position: relative;
     font-size: 35px;
+    font-weight: bolder;
     color: #115c92;
     font-family: Arial, Helvetica, sans-serif;
     top: -580px;
@@ -435,6 +440,7 @@ body{
 .eventoTresTitulo{
     position: relative;
     font-size: 35px;
+    font-weight: bolder;
     color: #115c92;
     font-family: Arial, Helvetica, sans-serif;
     top: -580px;
@@ -457,4 +463,70 @@ body{
     font-family: Arial;
     top: -575px;
     left: 230px;
+}
+
+.contactosIMG{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    margin-left: 870px;
+    margin-top: 50px;
+}
+
+.textoContactos{
+    position: relative;
+    width: 500px;
+    height: 115px;
+    top: -415px;
+    margin-left: 250px;
+}
+
+.infoContactos{
+    position: relative;
+    top: -375px;
+    margin-left: 250px;
+    color: #0f5d93;
+    font-size: 25px;
+}
+
+.setaScrollContactos{
+    position: relative;
+    width: 28px;
+    height: 35px;
+    margin-left: 735px;
+    top: -355px;
+}
+
+.textoContactar{
+    position: relative;
+    width: 500px;
+    height: 110px;
+    margin-left: 250px;
+    top: -150px;
+}
+
+.formularioContacto{
+    position: relative;
+    width: 1000px;
+    height: 335px;
+    margin-left: 250px;
+    top: -100px;
+}
+
+.botaoEnviar{
+    position: relative;
+    width: 200px;
+    height: 50px;
+    margin-left: 250px;
+    top: -25px;
+    margin-bottom: -10px;
+}
+
+.backToTopContactos{
+    position: relative;
+    width: 75px; 
+    height: 75px;
+    top: -50px;
+    margin-left: 1170px;
+    margin-bottom: -300px; 
 }

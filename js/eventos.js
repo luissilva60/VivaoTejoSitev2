@@ -10,11 +10,11 @@ document.getElementById("eventos_name").textContent = evento.eventos_name
 document.getElementById("eventos_starttime").textContent = "Início do evento: " + evento.eventos_starttime
 document.getElementById("eventos_endtime").textContent = "Fim do evento: " + evento.eventos_endtime
 document.getElementById("eventos_info").textContent = evento.eventos_info
-var markerPos;
 var directionsRenderer;
 var directionsService;
 var markerEvento;
 var markers = [];
+var map;
 
 function initMap() {
 
@@ -38,7 +38,7 @@ function initMap() {
         map: map
     });
     markerEvento.setIcon('../images/EventoMarker.png')
-    markers.push(markerEvento);
+    markers.push(markerEvento.position);
 
 
 
@@ -49,17 +49,14 @@ function initMap() {
 
 
 
-    window.onload(currentLocation())
+    currentLocation()
 
     directionsRenderer.setOptions( { suppressMarkers: true } );
     calculateAndDisplayRoute(directionsService, directionsRenderer);
     document.getElementById("btnrota").addEventListener("click", () => {
         calculateAndDisplayRoute(directionsService, directionsRenderer)
     });
-    var bounds = new google.maps.LatLngBounds();
-    for (var i = 0; i < markers.length; i++) {
-        bounds.extend(markers[i]);
-    }
+    markerBounds()
 
 
 }
@@ -78,12 +75,11 @@ function currentLocation () {
                     position: new google.maps.LatLng(pos.lat, pos.lng),
                     map: map
                 });
-                markers.push(markerGeolocation)
+                markers.push(markerGeolocation.position)
 
                 markerGeolocation.setIcon('../images/location.png')
                 google.maps.event.addListener(markerGeolocation, 'click', (function(marker) {
                     return function() {
-                        closeLastOpenedInfoWindow();
                         infoWindoGeolocation.setContent("Você está aqui");
                         infoWindoGeolocation.open(map, marker);
                         lastOpenedInfoWindow = infoWindoGeolocation;
@@ -100,6 +96,7 @@ function currentLocation () {
     }
 }
 var pos;
+
 
 
 
@@ -126,7 +123,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     directionsService
         .route({
             origin: pos,
-            destination: markerPos,
+            destination: markerEvento,
 
             travelMode: google.maps.TravelMode[selectedMode],
 
@@ -148,6 +145,17 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             ? "Error: The Geolocation service failed."
             : "Error: Your browser doesn't support geolocation."
     );
+}
+
+function markerBounds(){
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < markers.length; i++) {
+        bounds.extend(markers[i]);
+    }
+    console.log("adawdasdadasdas" + bounds)
+    map.fitBounds(bounds);
+
+    console.log(markers)
 }
 
 

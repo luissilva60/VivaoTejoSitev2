@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
     <!--<script src="script.js"></script>-->
     <script src="js/app.js"></script>
-    <script src="./js/eventos.js"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
+
 </head>
 
 <div>
@@ -34,9 +35,13 @@
     <img src=".\images\Group 139.png" alt="Mapa Eventos" class="eventosMap">
     <img src=".\images\Group 142.png" alt="Selecionar Evento" class="eventosOptions">
 
-    <p class="eventoTresTitulo">PROCISSÃO DE <br> SÃO PEDRO</p>
-    <p class="eventoTresInfoTitulo">29 de JUNHO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HORA: 18:00H<br>LOCAL: Montijo</p>
-    <p class="eventoTresInfo">Esta é uma descrição resumida do que será <br> o evento da Marinha do Tejo. Aqui mete-se <br> o que é, para quem é direcionado, eventuais<br> parceiros associados, entre outras<br> informações.</p>
+    <p class="eventoUmTitulo" id="eventos_name"></p>
+    <p class="eventoUmInfoTitulo" id="eventos_data"><br></p>
+    <p class="eventoUmInfoTitulo" id="eventos_starttime"><br></p>
+    <p class="eventoUmInfoTitulo" id="eventos_endtime"><br></p>
+    <p class="eventoUmInfo" id="eventos_info"></p>
 </body>
+
+<script src="./js/eventos.js"></script>
 
 </html>

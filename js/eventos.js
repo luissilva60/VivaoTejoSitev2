@@ -24,8 +24,8 @@ function initMap() {
     directionsRenderer = new google.maps.DirectionsRenderer();
     directionsService = new google.maps.DirectionsService();
     let mapOptions = {
-        center: new google.maps.LatLng('38.654077198334306', '-8.99502557883541'),
-        zoom: 17,
+        center: new google.maps.LatLng(evento.lat, evento.long),
+        zoom: 13,
         mapTypeId: 'roadmap',
         mapTypeControlOptions:{
             mapTypeIds:[]
@@ -39,7 +39,7 @@ function initMap() {
         map: map
     });
     markerEvento.setIcon('../images/EventoMarker.png')
-    markers.push(markerEvento.position);
+
 
 
 
@@ -59,12 +59,12 @@ function initMap() {
     document.getElementById("btnrota").addEventListener("click", () => {
         calculateAndDisplayRoute(directionsService, directionsRenderer)
     });
-    markerBounds();
+
 
 
 }
 
-var pos;
+
 
 function currentLocation () {
     const infoWindowGeolocation = new google.maps.InfoWindow()
@@ -72,7 +72,7 @@ function currentLocation () {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                pos = {
+                const pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude,
                 };
@@ -80,7 +80,7 @@ function currentLocation () {
                     position: new google.maps.LatLng(pos.lat, pos.lng),
                     map: map
                 });
-                markers.push(pos);
+
 
 
                 markerGeolocation.setIcon('../images/location.png')
@@ -88,7 +88,6 @@ function currentLocation () {
                     return function() {
                         infoWindowGeolocation.setContent("Você está aqui");
                         infoWindowGeolocation.open(map, marker);
-                        lastOpenedInfoWindow = infoWindoGeolocation;
                     }
                 })(markerGeolocation));
             },
@@ -102,6 +101,8 @@ function currentLocation () {
     }
 }
 
+
+var pos;
 
 
 
@@ -124,12 +125,12 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         handleLocationError(false, infoWindow, map.getCenter());
     }
 
-    console.log(pos)
+
 
     directionsService
         .route({
             origin: pos,
-            destination: markerEvento,
+            destination: new google.maps.LatLng(evento.lat, evento.long),
 
             travelMode: google.maps.TravelMode[selectedMode],
 

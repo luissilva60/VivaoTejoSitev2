@@ -24,8 +24,8 @@ function initMap() {
     directionsRenderer = new google.maps.DirectionsRenderer();
     directionsService = new google.maps.DirectionsService();
     let mapOptions = {
-        center: new google.maps.LatLng('38.654077198334306', '-8.99502557883541'),
-        zoom: 17,
+        center: new google.maps.LatLng(evento.lat, evento.long),
+        zoom: 15,
         mapTypeId: 'roadmap',
         mapTypeControlOptions:{
             mapTypeIds:[]
@@ -59,7 +59,8 @@ function initMap() {
     document.getElementById("btnrota").addEventListener("click", () => {
         calculateAndDisplayRoute(directionsService, directionsRenderer)
     });
-    markerBounds();
+
+    //markerBounds();
 
 
 }
@@ -129,7 +130,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     directionsService
         .route({
             origin: pos,
-            destination: markerEvento,
+            destination: markerEvento.position,
 
             travelMode: google.maps.TravelMode[selectedMode],
 

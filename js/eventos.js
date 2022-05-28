@@ -13,7 +13,7 @@ document.getElementById("eventos_info").textContent = evento.eventos_info
 var directionsRenderer;
 var directionsService;
 var markerEvento;
-var markers = [];
+var markersPos = [];
 var map;
 var bounds;
 
@@ -25,7 +25,7 @@ function initMap() {
     directionsService = new google.maps.DirectionsService();
     let mapOptions = {
         center: new google.maps.LatLng(evento.lat, evento.long),
-        zoom: 13,
+        zoom: 12,
         mapTypeId: 'roadmap',
         mapTypeControlOptions:{
             mapTypeIds:[]
@@ -39,6 +39,12 @@ function initMap() {
         map: map
     });
     markerEvento.setIcon('../images/EventoMarker.png')
+    //markersPos.push(markerEvento.position);
+
+
+
+
+
 
 
 
@@ -53,12 +59,20 @@ function initMap() {
 
 
     currentLocation()
-    directionsRenderer.setMap(map);
+
+
     directionsRenderer.setOptions( { suppressMarkers: true } );
     calculateAndDisplayRoute(directionsService, directionsRenderer);
     document.getElementById("btnrota").addEventListener("click", () => {
         calculateAndDisplayRoute(directionsService, directionsRenderer)
     });
+
+
+
+    //markerBounds();
+
+
+    // bounds.setMap(map)
 
 
 
@@ -80,6 +94,8 @@ function currentLocation () {
                     position: new google.maps.LatLng(pos.lat, pos.lng),
                     map: map
                 });
+
+                markersPos.push(pos);
 
 
 
@@ -145,6 +161,8 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
 
 
+
+
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(
@@ -156,13 +174,14 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 function markerBounds(){
     bounds = new google.maps.LatLngBounds();
-    for (var i = 0; i < markers.length; i++) {
-        bounds.extend(markers[i]);
+    for (var i = 0; i < markersPos.length; i++) {
+        bounds.extend(markersPos[i]);
     }
     console.log("adawdasdadasdas" + bounds)
     map.fitBounds(bounds);
 
-    console.log(markers)
+
+    console.log(markersPos)
 }
 
 

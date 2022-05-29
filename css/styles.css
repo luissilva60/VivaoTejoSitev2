@@ -277,8 +277,8 @@ body{
 .eventosOptions{
     position: relative;
     width: 560px;
-    height: 424px; 
-    margin-top: 50px;
+    height: 423px; 
+    margin-top: 52px;
     margin-bottom: 155px;
     margin-left: 195px;
 }
@@ -529,4 +529,12 @@ body{
     top: -50px;
     margin-left: 1170px;
     margin-bottom: -300px; 
+}
+
+.interactiveMapEvent{
+    height: 401px; 
+    width: 750px; 
+    position: relative;
+    top: -945px;
+    float: right;
 }

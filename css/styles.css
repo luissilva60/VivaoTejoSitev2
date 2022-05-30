@@ -532,9 +532,15 @@ body{
 }
 
 .interactiveMapEvent{
+    position: relative;
     height: 401px; 
     width: 750px; 
+    top: -450px;
+    margin-left: 400px;
+}
+
+.our_text_box{
     position: relative;
-    top: -945px;
-    float: right;
+    margin-top: -750px;
+    margin-left: 275px;
 }

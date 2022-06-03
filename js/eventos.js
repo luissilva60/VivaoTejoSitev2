@@ -38,7 +38,7 @@ function initMap() {
         position: new google.maps.LatLng(evento.lat, evento.long),
         map: map
     });
-    markerEvento.setIcon('../images/EventoMarker.png')
+    markerEvento.setIcon('./images/EventoMarker.png')
     //markersPos.push(markerEvento.position);
 
 
@@ -104,7 +104,7 @@ function currentLocation () {
 
 
 
-                markerGeolocation.setIcon('../images/location.png')
+                markerGeolocation.setIcon('./images/location.png')
                 google.maps.event.addListener(markerGeolocation, 'click', (function(marker) {
                     return function() {
                         infoWindowGeolocation.setContent("Você está aqui");

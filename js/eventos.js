@@ -13,7 +13,7 @@ document.getElementById("eventos_info").textContent = evento.eventos_info
 var directionsRenderer;
 var directionsService;
 var markerEvento;
-var markers = [];
+var markersPos = [];
 var map;
 var bounds;
 
@@ -25,7 +25,7 @@ function initMap() {
     directionsService = new google.maps.DirectionsService();
     let mapOptions = {
         center: new google.maps.LatLng(evento.lat, evento.long),
-        zoom: 15,
+        zoom: 12,
         mapTypeId: 'roadmap',
         mapTypeControlOptions:{
             mapTypeIds:[]
@@ -38,34 +38,30 @@ function initMap() {
         position: new google.maps.LatLng(evento.lat, evento.long),
         map: map
     });
-    markerEvento.setIcon('../images/EventoMarker.png')
-    markers.push(markerEvento.position);
-
-
-
-
-
-
-
-
-
-
-
+    markerEvento.setIcon('./images/EventoMarker.png')
+    //markersPos.push(markerEvento.position);
 
     currentLocation()
-    directionsRenderer.setMap(map);
+
+
     directionsRenderer.setOptions( { suppressMarkers: true } );
     calculateAndDisplayRoute(directionsService, directionsRenderer);
     document.getElementById("btnrota").addEventListener("click", () => {
         calculateAndDisplayRoute(directionsService, directionsRenderer)
     });
 
+
+
     //markerBounds();
+
+
+    // bounds.setMap(map)
+
 
 
 }
 
-var pos;
+
 
 function currentLocation () {
     const infoWindowGeolocation = new google.maps.InfoWindow()
@@ -73,7 +69,7 @@ function currentLocation () {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                pos = {
+                const pos = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude,
                 };
@@ -81,15 +77,16 @@ function currentLocation () {
                     position: new google.maps.LatLng(pos.lat, pos.lng),
                     map: map
                 });
-                markers.push(pos);
+
+                markersPos.push(pos);
 
 
-                markerGeolocation.setIcon('../images/location.png')
+
+                markerGeolocation.setIcon('./images/location.png')
                 google.maps.event.addListener(markerGeolocation, 'click', (function(marker) {
                     return function() {
                         infoWindowGeolocation.setContent("Você está aqui");
                         infoWindowGeolocation.open(map, marker);
-                        lastOpenedInfoWindow = infoWindoGeolocation;
                     }
                 })(markerGeolocation));
             },
@@ -103,10 +100,7 @@ function currentLocation () {
     }
 }
 
-
-
-
-
+var pos;
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     const selectedMode = document.getElementById("mode").value
@@ -125,8 +119,6 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         handleLocationError(false, infoWindow, map.getCenter());
     }
 
-    console.log(pos)
-
     directionsService
         .route({
             origin: pos,
@@ -141,10 +133,6 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         })
 }
 
-
-
-
-
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(
@@ -156,21 +144,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 function markerBounds(){
     bounds = new google.maps.LatLngBounds();
-    for (var i = 0; i < markers.length; i++) {
-        bounds.extend(markers[i]);
+    for (var i = 0; i < markersPos.length; i++) {
+        bounds.extend(markersPos[i]);
     }
     console.log("adawdasdadasdas" + bounds)
     map.fitBounds(bounds);
 
-    console.log(markers)
+
+    console.log(markersPos)
 }
-
-
-
 
 //document.getElementById("eventos_id3").textContent = eventos[2].evento_titulo
 //document.getElementById("evento_titulo3").textContent = eventos[2].evento_titulo
 //document.getElementById("evento_descricao3").textContent = eventos[2].evento_descricao
-
-
-

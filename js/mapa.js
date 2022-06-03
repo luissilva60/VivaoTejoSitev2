@@ -143,7 +143,7 @@ function initMap(){
     var geocodingMarker = new google.maps.Marker({
         map: map,
         anchorPoint: new google.maps.Point(0, -29)
-    });
+    }); 
 
 
     const addListener = autocomplete.addListener('place_changed', function () {

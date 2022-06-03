@@ -38,8 +38,25 @@ function initMap() {
         position: new google.maps.LatLng(evento.lat, evento.long),
         map: map
     });
-    markerEvento.setIcon('./images/EventoMarker.png')
+    markerEvento.setIcon('../images/EventoMarker.png')
     //markersPos.push(markerEvento.position);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     currentLocation()
 
@@ -50,6 +67,8 @@ function initMap() {
         calculateAndDisplayRoute(directionsService, directionsRenderer)
     });
 
+    //markerBounds();
+
 
 
     //markerBounds();
@@ -57,6 +76,9 @@ function initMap() {
 
     // bounds.setMap(map)
 
+
+
+    //markerBounds();
 
 
 }
@@ -82,7 +104,7 @@ function currentLocation () {
 
 
 
-                markerGeolocation.setIcon('./images/location.png')
+                markerGeolocation.setIcon('../images/location.png')
                 google.maps.event.addListener(markerGeolocation, 'click', (function(marker) {
                     return function() {
                         infoWindowGeolocation.setContent("Você está aqui");
@@ -100,7 +122,12 @@ function currentLocation () {
     }
 }
 
+
 var pos;
+
+
+
+
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     const selectedMode = document.getElementById("mode").value
@@ -119,10 +146,14 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         handleLocationError(false, infoWindow, map.getCenter());
     }
 
+
+
     directionsService
         .route({
             origin: pos,
-            destination: markerEvento.position,
+
+            destination: new google.maps.LatLng(evento.lat, evento.long),
+
 
             travelMode: google.maps.TravelMode[selectedMode],
 
@@ -132,6 +163,12 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
             directionsRenderer.setDirections(response);
         })
 }
+
+
+
+
+
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -154,6 +191,12 @@ function markerBounds(){
     console.log(markersPos)
 }
 
+
+
+
 //document.getElementById("eventos_id3").textContent = eventos[2].evento_titulo
 //document.getElementById("evento_titulo3").textContent = eventos[2].evento_titulo
 //document.getElementById("evento_descricao3").textContent = eventos[2].evento_descricao
+
+
+

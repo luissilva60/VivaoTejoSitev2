@@ -483,7 +483,7 @@
 
 
         <div id= "floating-panel" class="our_text_box">
-            <p style="font-weight: bold;font-size:medium;color: #0f5d93"> Método de Transporte: </p>
+            <p style="font-weight: bold;font-size:medium;color: #fff"> Método de Transporte: </p>
             <div class="box">
                 <select id="mode">
                     <option value="DRIVING">Condução</option>
@@ -492,6 +492,7 @@
                     <option value="TRANSIT">Transportes</option>
                 </select>
             </div>
+
             <!--<select id="mode" style="position: absolute; top:45px;" class="col-md-4">
                 <option value="DRIVING">Condução</option>
                 <option value="WALKING">Caminhar</option>
@@ -531,12 +532,6 @@
         var directionsRenderer;
         var directionsService;
         var lastOpenedInfoWindow;
-
-
-
-
-
-
 
         function initMap(){
             directionsRenderer = new google.maps.DirectionsRenderer();
@@ -597,14 +592,9 @@
                 maxZoom: 16,
             };
 
-
-
             markerClusterEmb = new MarkerClusterer(map, [], clusterEmbOptions);
             markerClusterEventos = new MarkerClusterer(map, [], clusterEventosOptions);
             getEventos();
-
-
-
 
             getEmbarcacoes();
 
@@ -630,8 +620,6 @@
             //Geolocation
             //Geolocation
 
-
-
             const locationButton = document.getElementById('button');
             map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
             locationButton.textContent = "Current location";
@@ -641,11 +629,6 @@
 
             locationButton.addEventListener("click", currentLocation)
             window.onload = currentLocation()
-
-
-
-
-
 
 
             //GEo Coding search bar
@@ -911,13 +894,7 @@
                     }
                 })(markerEmb[i], i));
             }
-
-
-
-
         }
-
-
 
         const api_url2='https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/eventos'
         async function getEventos(){
@@ -955,7 +932,6 @@
                     }
                 })(markerEventos[i], i));
             }
-
 
         }
 
@@ -1032,10 +1008,6 @@
                 })
         }
 
-
-
-
-
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             infoWindow.setPosition(pos);
             infoWindow.setContent(
@@ -1044,9 +1016,6 @@
                     : "Error: Your browser doesn't support geolocation."
             );
         }
-
-
-
 
         function clearMarkers() {
             for(i in markerEventos){
@@ -1063,9 +1032,6 @@
             for (var i = 0; i < rotasEmb.length ; i++){
                 rotasEmb[i].setMap(null);
             }
-
-
-
         }
         function showMarkerEmb() {
             clearMarkers()
@@ -1092,8 +1058,6 @@
                 markerEventos[i].setMap(map);                                                                                                                                                   /*MADE BY Luís Silva*/
             }
         }
-
-
 
         function activateHeatmap() {
             clearMarkers();

@@ -2,6 +2,8 @@ var evento = JSON.parse(window.localStorage.getItem('evento'));
 console.log(evento);
 console.log(evento.data);
 
+var markerPos;
+
 
 
 document.getElementById("eventos_data").textContent = "Data: " + evento.data
@@ -13,7 +15,7 @@ document.getElementById("eventos_info").textContent = evento.eventos_info
 var directionsRenderer;
 var directionsService;
 var markerEvento;
-var markersPos = [];
+
 var map;
 var bounds;
 
@@ -38,7 +40,9 @@ function initMap() {
         position: new google.maps.LatLng(evento.lat, evento.long),
         map: map
     });
-    markerEvento.setIcon('../images/EventoMarker.png')
+
+    markerPos = new google.maps.LatLng(evento.lat, evento.long);
+    markerEvento.setIcon('./images/EventoMarker.png')
     //markersPos.push(markerEvento.position);
 
 
@@ -59,6 +63,8 @@ function initMap() {
 
 
     currentLocation()
+
+    directionsRenderer.setMap(map);
 
 
     directionsRenderer.setOptions( { suppressMarkers: true } );
@@ -100,11 +106,10 @@ function currentLocation () {
                     map: map
                 });
 
-                markersPos.push(pos);
 
 
 
-                markerGeolocation.setIcon('../images/location.png')
+                markerGeolocation.setIcon('./images/location.png')
                 google.maps.event.addListener(markerGeolocation, 'click', (function(marker) {
                     return function() {
                         infoWindowGeolocation.setContent("Você está aqui");
@@ -130,6 +135,8 @@ var pos;
 
 
 function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+
+
     const selectedMode = document.getElementById("mode").value
 
     if (navigator.geolocation) {
@@ -146,14 +153,12 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
         handleLocationError(false, infoWindow, map.getCenter());
     }
 
-
+    console.log(pos)
 
     directionsService
         .route({
             origin: pos,
-
-            destination: new google.maps.LatLng(evento.lat, evento.long),
-
+            destination: markerPos,
 
             travelMode: google.maps.TravelMode[selectedMode],
 
@@ -163,6 +168,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
             directionsRenderer.setDirections(response);
         })
 }
+
 
 
 
@@ -188,7 +194,7 @@ function markerBounds(){
     map.fitBounds(bounds);
 
 
-    console.log(markersPos)
+
 }
 
 

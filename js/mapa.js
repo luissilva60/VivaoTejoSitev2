@@ -3,6 +3,7 @@ var heatmap;
 var map;
 var markerEmb = [];
 var markerEventos = [];
+var markerClusterAll;
 
 var markerClusterEventos;
 var markerClusterEmb
@@ -74,16 +75,17 @@ function initMap(){
         maxZoom: 16,
     };
 
-    const clusterEmbOptions = {
+    const clusterOptions = {
         imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
 
         zoomOnClick: true,
         maxZoom: 16,
     };
+    markerClusterAll = new MarkerClusterer(map, [], clusterOptions);
 
+    markerClusterAll.setMap(map);
 
-
-    markerClusterEmb = new MarkerClusterer(map, [], clusterEmbOptions);
+    markerClusterEmb = new MarkerClusterer(map, [], clusterOptions);
     markerClusterEventos = new MarkerClusterer(map, [], clusterEventosOptions);
     getEventos();
 
@@ -93,6 +95,8 @@ function initMap(){
     getEmbarcacoes();
 
     getCais();
+
+
 
     map.addListener("click", function removebutton(){
         closeLastOpenedInfoWindow();
@@ -396,6 +400,9 @@ async function getEmbarcacoes(){
         })(markerEmb[i], i));
     }
 
+    markerClusterAll.addMarkers(markerEmb)
+
+
 
 
 
@@ -439,6 +446,9 @@ async function getEventos(){
             }
         })(markerEventos[i], i));
     }
+
+
+    markerClusterAll.addMarkers(markerEventos)
 
 
 }
@@ -540,6 +550,8 @@ function clearMarkers() {
         markerEmb[i].setMap(null);
     }
     heatmap.setMap(null);
+    markerClusterAll.removeMarkers(markerEventos);
+    markerClusterAll.removeMarkers(markerEmb);
     markerClusterEventos.removeMarkers(markerEventos);
     markerClusterEmb.removeMarkers(markerEmb);
     document.getElementById("rota").style.display="none";
@@ -575,6 +587,8 @@ function showAllMarkers() {
     for(i in markerEventos){
         markerEventos[i].setMap(map);                                                                                                                                                   /*MADE BY Luís Silva*/
     }
+    markerClusterAll    .addMarkers(markerEmb)
+    markerClusterAll.addMarkers(markerEventos)
 }
 
 

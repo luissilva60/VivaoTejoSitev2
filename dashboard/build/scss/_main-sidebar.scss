@@ -24,7 +24,7 @@
   padding-left: $sidebar-padding-x;
   padding-right: $sidebar-padding-x;
   padding-top: $sidebar-padding-y;
-  @include scrollbar-color-gray();
+
   @include scrollbar-width-none();
 
   &:hover {
@@ -215,7 +215,7 @@
     }
   }
 
-  background-color: rgba($black, .1);
+  background-color: rgba(#105d93, .1);
   bottom: 0;
   display: none;
   left: 0;
@@ -356,7 +356,7 @@
 
 [class*="sidebar-dark-"] {
   // Sidebar background color
-  background-color: $sidebar-dark-bg;
+  background-color: #105d93;
 
   // User Panel (resides in the sidebar)
   .user-panel {

@@ -12,33 +12,16 @@ $(document).ready(
                 console.log(result);
                 $('#name').text(result)
                 var obj = JSON.stringify(result);
+                window.localStorage.setItem('barcos', JSON.stringify(result));
                 console.log(obj);
                 let tabela = document.querySelector("#tableembpending")
                 let html = ""
                 let buttons = 
                 `<td><div class="btn-group">
-                          <button type="button" class="btn btn-danger">Rejeitar</button>
-                          <button type="button" class="btn btn-danger dropdown-toggle dropdown-hover dropdown-icon" data-toggle="dropdown">
-                            <span class="sr-only">Toggle Dropdown</span>
-                          </button>
-                          <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" href="#">Rejeitar</a>
-                            <a class="dropdown-item" href="#">Rejeitar e enviar mensagem</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                          </div>
+                          <button type="button" id="btnRejeitar" class="btn btn-danger">Rejeitar</button>
                         </div>
                         <div class="btn-group">
-                          <button type="button" class="btn btn-success">Aceitar</button>
-                          <button type="button" class="btn btn-success dropdown-toggle dropdown-hover dropdown-icon" data-toggle="dropdown">
-                            <span class="sr-only">Toggle Dropdown</span>
-                          </button>
-                          <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" href="#">Aceitar</a>
-                            <a class="dropdown-item" href="#">Aceitar e enviar mensagem</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                          </div>
+                          <button type="button" onclick="aceitar(${result.embarcacao_id})"id="btnAceitar" class="btn btn-success">Aceitar</button>
                         </div>`;
                 for (let i in result)
                 {
@@ -76,7 +59,8 @@ $(document).ready(function () {
               name: jQuery('[name=embarcacao_name]').val(),
               info: jQuery('[name=embarcacao_info]').val(),
               propId: user.utilizador_id,
-              pos: jQuery('[name=embarcacao_pos]').val()
+              pos: jQuery('[name=embarcacao_pos]').val(),
+              rota: jQuery('[name=rota]').val()
           },
           dataType: 'json',
           success: function(result) {
@@ -86,3 +70,27 @@ $(document).ready(function () {
       });
   });
 });
+
+$(document).ready(function () {
+
+  $('#btnAceitar').on('click', function(event) {
+
+      event.preventDefault();
+
+      $("#btnAceitar").prop("disabled", true);
+  });
+});
+
+function aceitar(id){
+  var barcos = JSON.parse(window.localStorage.getItem('barcos'));
+    $.ajax({
+    url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/embarcacao/update/verification/" + barcos.embarcacao_id,
+    type: "PUT",
+    dataType: 'json',
+    success: function(result) {
+        console.log("SUCCESS : ", result);
+        $("#btnAceitar").prop("disabled", false);
+        alert("Embarcação Aceite")
+    }
+  });
+}

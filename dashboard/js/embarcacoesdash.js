@@ -21,7 +21,7 @@ $(document).ready(
                           <button type="button" id="btnRejeitar" class="btn btn-danger">Rejeitar</button>
                         </div>
                         <div class="btn-group">
-                          <button type="button" onclick="aceitar(${result.embarcacao_id})"id="btnAceitar" class="btn btn-success">Aceitar</button>
+                          <button type="button" onclick="aceitar(${result.embarcacao_id})" id="btnAceitar" class="btn btn-success">Aceitar</button>
                         </div>`;
                 for (let i in result)
                 {

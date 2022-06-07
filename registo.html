@@ -11,7 +11,7 @@
         integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
     <!--<script src="script.js"></script>-->
     <script src="js/app.js"></script>
-    <script src="js/registo.js"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
 </head>
 
 <div>
@@ -44,12 +44,12 @@
                 <h2 style="color: #fff">Registo de Conta</h2> <br>
                 <div class="form-control">
                     <label for="username" style="color: #fff">Nome</label>
-                    <input type="text" id="username" placeholder="Introduza o seu nome" />
+                    <input type="text" id="username" name="utilizador_name" placeholder="Introduza o seu nome" />
                     <small>Error Message</small>
                 </div>
                 <div class="form-control">
                     <label for="email" style="color: #fff">Email</label>
-                    <input type="text" id="email" placeholder="Introduza o seu email" />
+                    <input type="text" id="email" name="utilizador_email" placeholder="Introduza o seu email" />
                     <small>Error Message</small>
                 </div>
                 <!--<div class="form-control">
@@ -61,28 +61,29 @@
                 <div class="radio-wrapper">
                     <p style="color: #fff">GÉNERO</p>
                     <div class="radio-container">
-                        <input checked="checked" type="radio" name="gender" value="1" id="male" />
+                        <input checked="checked" type="radio" name="utilizador_gender" value="M" id="male" />
                         <label for="male">Masculino</label>
-                        <input type="radio" name="gender" value="0" id="female" />
+                        <input type="radio" name="utilizador_gender" value="F" id="female" />
                         <label for="female">Feminino</label>
                     </div>
                 </div> <br> <br>
                 
-                <label for="start" style="color: #fff">Data de nascimento:&nbsp;&nbsp;</label> 
-                <input type="date" id="start" name="trip-start" value="2022-22-22" min="1900-01-01"
-                    max="2022-12-31"> <br> <br>
-
+                <div class="form-control">
+                    <label for="username" style="color: #fff">Data Nascimento (yyyy-mm-dd)</label>
+                    <input type="text" id="bdate" name="utilizador_bdate" placeholder="Introduza a sua data de nascimento" />
+                    <small>Error Message</small>
+                </div>
                 <div class="form-control">
                     <label for="password" style="color: #fff">Password</label>
-                    <input type="password" id="password" placeholder="Introduza a sua password" />
+                    <input type="password" name="utilizador_password" id="password" placeholder="Introduza a sua password" required/>
                     <small>Error Message</small>
                 </div>
                 <div class="form-control">
                     <label for="password2" style="color: #fff">Confirme a sua Password</label>
-                    <input type="password" id="password2" placeholder="Volte a introduzir a password" />
+                    <input type="password" id="password2" placeholder="Volte a introduzir a password" required />
                     <small>Error Message</small>
                 </div>
-                <button>Registar</button>
+                <button id="btnRegistar">Registar</button>
             </form>
         </div>
     </main>
@@ -100,5 +101,5 @@
         <img src=".\images\SEGUE-NOSFACEBOOKINSTAGRAMYOUTUBE.png" class="segueText" />
     </div>
 </footer>
-
+<script src="js/registo.js"></script>
 </html>

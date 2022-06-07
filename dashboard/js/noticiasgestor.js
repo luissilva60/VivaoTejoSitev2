@@ -1,6 +1,9 @@
 $(document).ready(
 
     function(){
+        var user = JSON.parse(window.localStorage.getItem('user'));
+        var username = document.getElementById("usernameDB");
+        username.textContent = user.utilizador_name;
         $.ajax({
             url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/artigos",
             type: "GET",
@@ -39,7 +42,8 @@ $(document).ready(
 
 $(document).ready(function () {
     $('#btnCriarArtigo').on('click', function(event) {
-
+        var user = JSON.parse(window.localStorage.getItem('user'));
+        console.log(user.utilizador_id);
         event.preventDefault();
 
         $("#btnCriarArtigo").prop("disabled", true);
@@ -51,7 +55,7 @@ $(document).ready(function () {
                 subtitle: jQuery('[name=artigos_subtitle]').val(),
                 info: jQuery('[name=artigos_info]').val(),
                 date: jQuery('[name=artigos_date]').val(),
-                utId: jQuery('[name=artigos_ut_id]').val()
+                utId: user.utilizador_id
             },
             dataType: 'json',
             success: function(result) {

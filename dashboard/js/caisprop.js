@@ -1,6 +1,9 @@
 $(document).ready(
 
     function(){
+        var user = JSON.parse(window.localStorage.getItem('user'));
+        var username = document.getElementById("usernameDB");
+        username.textContent = user.utilizador_name;
         $.ajax({
             url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/cais",
             type: "GET",

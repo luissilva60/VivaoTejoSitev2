@@ -1,18 +1,14 @@
-var user = JSON.parse(window.localStorage.getItem('user'));
-var botao = document.getElementById("dashboardButton")
-
-console.log(user);
-
-if (user.utilizador_role_id == 1) {
-    botao.style.visibility("hidden")
-} else botao.style.visibility("visible")
-
-
-/*function userOption() {
-    const dashboardButton = document.querySelector('dashboardButton');
+    function check(){
+    var user = JSON.parse(window.localStorage.getItem('user'));
+    var botao = document.getElementById("dashboardButton")
     
-    if (user.roles_id >= 2) {
-        dashboardButton.style.visibility('visible') 
-    } else botao.style.visibility('hidden') 
-    
-} */
+
+    console.log(user);
+    console.log(user.utilizador_role_id);
+
+    if (user.utilizador_role_id >= 2) {
+        botao.style.display = "block";
+    } else 
+    botao.style.display = "hidden";
+}
+check();

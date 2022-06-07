@@ -27,10 +27,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="starter.html" class="nav-link">Home</a>
+        <a href="/indexLoggedIn.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="/contactosLoggedIn.html" class="nav-link">Contact</a>
       </li>
     </ul>
 
@@ -173,7 +173,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">John Doe</a>
+          <a href="#" id="usernameDB" class="d-block">John Doe</a>
         </div>
       </div>
 
@@ -194,7 +194,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-closed">
+          <li id="gerirUsers" style="display:none" class="nav-item menu-closed">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-expand-arrows-alt"></i>
               <p>
@@ -225,7 +225,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
 
 
-          <li class="nav-item menu-closed">
+          <li id="gerirCont" style="display:none" class="nav-item menu-closed">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-expand-arrows-alt"></i>
               <p>
@@ -249,7 +249,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
 
-          <li class="nav-item menu-closed" class="nav-link inactive">
+          <li id="gerirEmb" style="display:none" class="nav-item menu-closed" class="nav-link inactive">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-expand-arrows-alt"></i>
               <p>
@@ -274,7 +274,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
 
 
-          <li class="nav-item menu-closed">
+          <li id="gerirMapa" style="display:none" class="nav-item menu-closed">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-expand-arrows-alt"></i>
               <p>
@@ -286,7 +286,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="mapaalteradmin.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Adicionar Cais</p>
+                  <p>Gerir Cais</p>
                 </a>
               </li>
 
@@ -310,7 +310,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="starter.html">Home</a></li>
               <li class="breadcrumb-item active">Starter Page</li>
             </ol>
           </div><!-- /.col -->
@@ -320,62 +320,82 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="content">
+    <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+          <div class="col-md-6">
+            <!-- PIE CHART -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Utilizadores</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
               </div>
+              <div class="card-body">
+                <canvas id="pieChartUser" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
             </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
+            <!-- /.card -->
           </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
+          <div class="col-md-6">
+            <!-- PIE CHART -->
+            <div class="card card-secondary">
               <div class="card-header">
-                <h5 class="m-0">Featured</h5>
+                <h3 class="card-title">Cais</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
               </div>
               <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <canvas id="pieChartCais" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
               </div>
+              <!-- /.card-body -->
             </div>
-
-            <div class="card card-primary card-outline">
+            <!-- /.card -->
+          </div>
+          <div class="col-md-6">
+            <!-- PIE CHART -->
+            <div class="card card-secondary">
               <div class="card-header">
-                <h5 class="m-0">Featured</h5>
+                <h3 class="card-title">Artigos</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
               </div>
               <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="chart">
+                  <canvas id="barChartArtigos" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
               </div>
+              <!-- /.card-body -->
             </div>
+            <!-- /.card -->
+          </div>
+          <div class="col-md-6">
+            <!-- PIE CHART -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Eventos</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="pieChartEventos" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
           </div>
           <!-- /.col-md-6 -->
         </div>
@@ -400,7 +420,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+      Marinha do Tejo
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
@@ -416,5 +436,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+<script src="./js/starter.js"></script>
+<script src="./js/userCheck.js"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="././plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="././dist/js/adminlte.min.js"></script>
+<!-- ChartJS -->
+<script src="././plugins/chart.js/Chart.min.js"></script>
 </body>
 </html>

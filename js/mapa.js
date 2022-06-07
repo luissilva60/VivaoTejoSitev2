@@ -388,7 +388,7 @@ async function getEmbarcacoes(){
                 directionsRenderer.setMap(null);
 
                 for (var y = 0; y < rotasEmb.length ; y++){
-                    rotasEmb[y].setMap(null);
+                     rotasEmb[y].setMap(null);
                 }
 
                 rotasPos = i;

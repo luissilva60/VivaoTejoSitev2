@@ -3,9 +3,9 @@ var botao = document.getElementById("dashboardButton")
 
 console.log(user);
 
-if (user.utilizador_role_id == 1) {
-    botao.style.visibility("hidden")
-} else botao.style.visibility("visible")
+if (user.utilizador_role_id >= 2) {
+    botao.style.visibility("visible")
+} else botao.style.visibility("hidden")
 
 
 /*function userOption() {

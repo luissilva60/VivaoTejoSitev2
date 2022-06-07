@@ -248,16 +248,16 @@ body{
 
 .imgLogin{
     position: relative;
-    width: 100px;
-    height: 45px;
+    width: 95px;
+    height: 42px;
     top: -523px;
     margin-left: 1100px;
 }
 
 .imgRegisto{
     position: relative;
-    width: 110px;
-    height: 45px;
+    width: 107px;
+    height: 42px;
     top: -590px;
     margin-left: 1200px;
 }
@@ -621,4 +621,12 @@ input[type=text], input[type=password] {
     height: 45px;
     top: -525px;
     margin-left: 1165px;
+}
+
+.imgLogout{
+    position: relative;
+    width: 38px;
+    height: 35px;
+    top: -596px;
+    margin-left: 1097px;
 }

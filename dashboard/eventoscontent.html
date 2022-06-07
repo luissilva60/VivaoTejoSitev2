@@ -265,30 +265,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName">Título Evento</label>
-                <input type="text" id="inputName" class="form-control">
+                <label for="inputName">Nome Evento</label>
+                <input type="text" id="inputName" name="eventos_name" class="form-control">
               </div>
               <div class="form-group">
                 <label for="inputDescription">Info</label>
-                <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                <textarea id="inputDescription" class="form-control" name="eventos_info" rows="4"></textarea>
               </div>
               <div class="form-group">
-                <label for="inputName">Local</label>
-                <input type="text" id="inputName" class="form-control">
+                <label for="inputName">Local (Ex: POINT(lat long)) </label>
+                <input type="text" id="inputName" name="eventos_local" class="form-control">
               </div>
               <div class="form-group">
-                <label>Data Notícia</label>
+                <label for="inputName">Nome Local </label>
+                <input type="text" id="inputName" name="eventos_local_name" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Data Evento</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                  <input type="text" class="form-control" name="eventos_date" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputName">Starttime</label>
-                <input type="text" id="inputName" class="form-control">
+                <label for="inputName">Starttime (Ex: hh:mm:ss)</label>
+                <input type="text" id="inputName" name="eventos_starttime" class="form-control">
               </div>
               <div class="form-group">
-                <label for="inputName">Endtime</label>
-                <input type="text" id="inputName" class="form-control">
+                <label for="inputName">Endtime (Ex: hh:mm:ss)</label>
+                <input type="text" id="inputName" name="eventos_endtime" class="form-control">
               </div>
             </div>
             <!-- /.card-body -->
@@ -376,7 +380,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="row">
         <div class="col-12">
           <a href="#" class="btn btn-secondary">Clear</a>
-          <input type="submit" value="Criar Notícia" class="btn btn-success float-right">
+          <input type="submit" onclick="$.btnCriarEvento()" value="Enviar" id="btnCriarEvento" class="btn btn-success float-right">
         </div>
       </div>
       <div class="col-sm-6">

@@ -24,8 +24,8 @@ $(document).ready(
                     html += `<tr>
                     <th>${result[i].artigos_id}</th>
                     <th>${result[i].artigos_title}</th>
-                    <th>${result[i].artigos_date}</th>
-                    <th>${result[i].artigos_ut_id}</th>
+                    <th>${result[i].data}</th>
+                    <th>${result[i].utilizador_name}</th>
                     ${buttons}</tr>`
                 }
 
@@ -36,3 +36,28 @@ $(document).ready(
     }
 
 );
+
+$(document).ready(function () {
+    $('#btnCriarArtigo').on('click', function(event) {
+
+        event.preventDefault();
+
+        $("#btnCriarArtigo").prop("disabled", true);
+        $.ajax({
+            url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/artigos/new",
+            type: "POST",
+            data: {
+                title: jQuery('[name=artigos_title]').val(),
+                subtitle: jQuery('[name=artigos_subtitle]').val(),
+                info: jQuery('[name=artigos_info]').val(),
+                date: jQuery('[name=artigos_date]').val(),
+                utId: jQuery('[name=artigos_ut_id]').val()
+            },
+            dataType: 'json',
+            success: function(result) {
+                console.log("SUCCESS : ", result);
+                $("#btnCriarArtigo").prop("disabled", false);
+            }
+        });
+    });
+});

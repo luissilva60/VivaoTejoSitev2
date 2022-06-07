@@ -81,7 +81,7 @@ $(document).ready(
                     datasets: [
                     {
                         data: data,
-                        backgroundColor : ['#f56954', '#00a65a'],
+                        backgroundColor : ['#00c0ef', '#f39c12'],
                     }
                     ]
                 }
@@ -121,10 +121,10 @@ $(document).ready(
 
                 var barChartCanvas = $('#barChartArtigos').get(0).getContext('2d')
                 var barChartData = {
-                labels  : ['Quantidade de Eventos'],
+                labels  : ['Quantidade de Artigos'],
                 datasets: [
                   {
-                    label               : 'Eventos',
+                    label               : 'Notícias',
                     backgroundColor     : 'rgba(60,141,188,0.9)',
                     borderColor         : 'rgba(60,141,188,0.8)',
                     pointRadius          : false,
@@ -187,7 +187,7 @@ $(document).ready(
                     datasets: [
                     {
                         data: data,
-                        backgroundColor : ['#f56954', '#00a65a'],
+                        backgroundColor : ['#00c0ef', '#f39c12'],
                     }
                     ]
                 }

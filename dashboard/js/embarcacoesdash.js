@@ -1,6 +1,9 @@
 $(document).ready(
 
     function(){
+        var user = JSON.parse(window.localStorage.getItem('user'));
+        var username = document.getElementById("usernameDB");
+        username.textContent = user.utilizador_name;
         $.ajax({
             url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/embarcacao/pending",
             type: "GET",
@@ -62,6 +65,9 @@ $(document).ready(function () {
 
       event.preventDefault();
 
+      var user = JSON.parse(window.localStorage.getItem('user'));
+      console.log(user.utilizador_id);
+
       $("#btnCriarEmbarcacao").prop("disabled", true);
       $.ajax({
           url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/embarcacao/new",
@@ -69,7 +75,7 @@ $(document).ready(function () {
           data: {
               name: jQuery('[name=embarcacao_name]').val(),
               info: jQuery('[name=embarcacao_info]').val(),
-              propId: jQuery('[name=embarcacao_prop_id]').val(),
+              propId: user.utilizador_id,
               pos: jQuery('[name=embarcacao_pos]').val()
           },
           dataType: 'json',

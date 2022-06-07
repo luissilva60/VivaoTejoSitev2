@@ -615,4 +615,10 @@ input[type=text], input[type=password] {
     background-color: #0f5d93;  
 }   
 
-
+.imgDashboard{
+    position: relative;
+    width: 150px;
+    height: 45px;
+    top: -525px;
+    margin-left: 1165px;
+}

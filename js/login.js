@@ -30,7 +30,7 @@ $(document).ready(function() {
             },
             success: function(result) {
                 console.log("SUCCESS : ", result);
-                window.location.href = "LoggedIn.html"
+                window.location.href = "indexLoggedIn.html"
 
 
 
@@ -71,7 +71,7 @@ $(document).ready(function() {
             },
             success: function(result) {
                 console.log("SUCCESS : ", result);
-                window.location.href = "LoggedIn.html"
+                window.location.href = "indexLoggedIn.html"
 
 
 

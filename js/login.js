@@ -23,7 +23,7 @@ $(document).ready(function() {
             dataType: 'json',
 
             error: function (result){
-                alert("Username or Password are Incorrect")
+                alert("Nome ou password incorretas")
                 console.log("ERROR: ", result)
 
                 $("#btnLogin").prop("disabled", false);
@@ -64,7 +64,7 @@ $(document).ready(function() {
             dataType: 'json',
 
             error: function (result){
-                alert("Username or Password are Incorrect")
+                alert("Nome ou password incorretas")
                 console.log("ERROR: ", result)
 
                 $("#btnLogin").prop("disabled", false);

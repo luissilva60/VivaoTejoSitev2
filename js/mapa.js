@@ -86,7 +86,7 @@ function initMap(){
     markerClusterAll.setMap(map);
 
     markerClusterEmb = new MarkerClusterer(map, [], clusterOptions);
-    markerClusterEventos = new MarkerClusterer(map, [], clusterEventosOptions);
+    markerClusterEventos = new MarkerClusterer(map, [], clusterOptions);
     getEventos();
 
 
@@ -382,7 +382,9 @@ async function getEmbarcacoes(){
             return function() {
                 closeLastOpenedInfoWindow();
                 document.getElementById('floating-panel').style.display="none"
-                document.getElementById("rota").style.display="inline-block"
+                if(ParseEmbRota == null){
+                    document.getElementById("rota").style.display="none"
+                }else document.getElementById("rota").style.display="inline-block"
                 directionsRenderer.setMap(null);
 
                 for (var y = 0; y < rotasEmb.length ; y++){

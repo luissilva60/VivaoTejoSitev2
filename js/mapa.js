@@ -487,6 +487,7 @@ function currentLocation () {
                     }
                 })(markerGeolocation));
                 map.setCenter(pos);
+                map.setZoom(12)
             },
             () => {
                 handleLocationError(true, infoWindoGeolocation, map.getCenter());

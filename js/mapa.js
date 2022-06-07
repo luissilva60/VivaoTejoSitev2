@@ -314,6 +314,7 @@ async function getEmbarcacoes(){
     var infowindowEmb = new google.maps.InfoWindow()
 
     var latLngArray = [];
+    var ParseEmbRota = []
 
 
 
@@ -331,50 +332,51 @@ async function getEmbarcacoes(){
 
         markerEmb[i].setIcon('./images/barco-a-vela.png')
 
-        var ParseEmbRota = JSON.parse(embarcacoes[i].geojson);
-        console.log(ParseEmbRota)
+        ParseEmbRota[i] = JSON.parse(embarcacoes[i].geojson);
+        console.log(ParseEmbRota[i])
+        //if(ParseEmbRota[i]){
+            var shell = ParseEmbRota[i].coordinates;
+            latLngArray[i] = [];
+            for (let s = 0; s < shell.length; s++) {
+                var pt = new google.maps.LatLng(shell[s][0], shell[s][1]);
+                latLngArray[i].push(pt);
+            }
 
-        var shell = ParseEmbRota.coordinates;
-        latLngArray[i] = [];
-        for (let s = 0; s < shell.length; s++) {
-            var pt = new google.maps.LatLng(shell[s][0], shell[s][1]);
-            latLngArray[i].push(pt);
-        }
+            const lineSymbol = {
+                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                scale: 8,
+                strokeColor: "#ffd15c",
+                fillColor: "#FFFFFF",
+                fillOpacity: 1,
+                strokeOpacity: 0.3,
+            };
+            const dashedLineSymbol = {
+                path: 'M 0,-1 0,1',
+                strokeOpacity: 1,
+                scale: 4
+            };
 
-        const lineSymbol = {
-            path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-            scale: 8,
-            strokeColor: "#ffd15c",
-            fillColor: "#FFFFFF",
-            fillOpacity: 1,
-            strokeOpacity: 0.3,
-        };
-        const dashedLineSymbol = {
-            path: 'M 0,-1 0,1',
-            strokeOpacity: 1,
-            scale: 4
-        };
+            rotasEmb[i] = new google.maps.Polyline({
+                path: latLngArray[i],
+                icons: [
 
-        rotasEmb[i] = new google.maps.Polyline({
-            path: latLngArray[i],
-            icons: [
+                    {
+                        icon: lineSymbol,
+                        offset: "100%",
+                    }, {
+                        icon: dashedLineSymbol,
+                        offset: '0',
+                        repeat: '20px'
+                    }],
 
-                {
-                    icon: lineSymbol,
-                    offset: "100%",
-                }, {
-                    icon: dashedLineSymbol,
-                    offset: '0',
-                    repeat: '20px'
-                }],
-
-            geodesic: true,
-            strokeColor:"#0000FF",
-            strokeOpacity:0,
-            strokeWeight:2
-        })
-        animateCircle(rotasEmb[i]);
-        rotasEmb[i].setMap(null);
+                geodesic: true,
+                strokeColor:"#0000FF",
+                strokeOpacity:0,
+                strokeWeight:2
+            })
+            animateCircle(rotasEmb[i]);
+            rotasEmb[i].setMap(null);
+        //}
 
 
 
@@ -382,9 +384,7 @@ async function getEmbarcacoes(){
             return function() {
                 closeLastOpenedInfoWindow();
                 document.getElementById('floating-panel').style.display="none"
-                if(ParseEmbRota == null){
-                    document.getElementById("rota").style.display="none"
-                }else document.getElementById("rota").style.display="inline-block"
+                document.getElementById("rota").style.display="inline-block"
                 directionsRenderer.setMap(null);
 
                 for (var y = 0; y < rotasEmb.length ; y++){
@@ -397,6 +397,9 @@ async function getEmbarcacoes(){
                 infowindowEmb.setContent("<h2>" + embarcacoes[i].embarcacao_name + "</h2><p> " + embarcacoes[i].embarcacao_info + "</p> Proprietário: "+ embarcacoes[i].utilizador_name );
 
                 infowindowEmb.open(map, marker);
+
+
+
                 lastOpenedInfoWindow = infowindowEmb;
             }
         })(markerEmb[i], i));

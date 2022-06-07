@@ -1,9 +1,11 @@
 var user = JSON.parse(window.localStorage.getItem('user'));
-var botao = document.getElementById(id="dashboardButton")
+var botao = document.getElementById("dashboardButton")
 
-if (user.roles_id >= 2) {
-    botao.style.visibility(hidden) 
-} 
+console.log(user);
+
+if (user.utilizador_role_id >= 2) {
+    botao.style.visibility("visible")
+} else botao.style.visibility("hidden")
 
 
 /*function userOption() {

@@ -187,6 +187,7 @@ function initMap(){
 
         infowindow1.setContent('<div><strong>' + place.name + '</strong><br>' + address);
         infowindow1.open(map, geocodingMarker);
+        lastOpenedInfoWindow = infowindow1;
 
         // Location details
         for (var i = 0; i < place.address_components.length; i++) {

@@ -56,3 +56,27 @@ $(document).ready(
     }
 
 );
+
+$(document).ready(function () {
+  $('#btnCriarEmbarcacao').on('click', function(event) {
+
+      event.preventDefault();
+
+      $("#btnCriarEmbarcacao").prop("disabled", true);
+      $.ajax({
+          url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/embarcacao/new",
+          type: "POST",
+          data: {
+              name: jQuery('[name=embarcacao_name]').val(),
+              info: jQuery('[name=embarcacao_info]').val(),
+              propId: jQuery('[name=embarcacao_prop_id]').val(),
+              pos: jQuery('[name=embarcacao_pos]').val()
+          },
+          dataType: 'json',
+          success: function(result) {
+              console.log("SUCCESS : ", result);
+              $("#btnCriarEmbarcacao").prop("disabled", false);
+          }
+      });
+  });
+});

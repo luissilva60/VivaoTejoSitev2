@@ -34,3 +34,26 @@ $(document).ready(
     }
 
 );
+
+$(document).ready(function () {
+    $('#btnCriarCais').on('click', function(event) {
+  
+        event.preventDefault();
+  
+        $("#btnCriarCais").prop("disabled", true);
+        $.ajax({
+            url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/cais/new",
+            type: "POST",
+            data: {
+                name: jQuery('[name=cais_name]').val(),
+                spot: jQuery('[name=cais_spot]').val(),
+                info: jQuery('[name=cais_info]').val()               
+            },
+            dataType: 'json',
+            success: function(result) {
+                console.log("SUCCESS : ", result);
+                $("#btnCriarCais").prop("disabled", false);
+            }
+        });
+    });
+  });

@@ -333,8 +333,8 @@ async function getEmbarcacoes(){
         markerEmb[i].setIcon('./images/barco-a-vela.png')
 
         ParseEmbRota[i] = JSON.parse(embarcacoes[i].geojson);
-        console.log(ParseEmbRota[i])
-        //if(ParseEmbRota[i]){
+
+
             var shell = ParseEmbRota[i].coordinates;
             latLngArray[i] = [];
             for (let s = 0; s < shell.length; s++) {
@@ -376,7 +376,6 @@ async function getEmbarcacoes(){
             })
             animateCircle(rotasEmb[i]);
             rotasEmb[i].setMap(null);
-        //}
 
 
 

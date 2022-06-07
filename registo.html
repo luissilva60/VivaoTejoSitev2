@@ -11,6 +11,7 @@
         integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
     <!--<script src="script.js"></script>-->
     <script src="js/app.js"></script>
+    <script src="js/registo.js"></script>
 </head>
 
 <div>
@@ -33,57 +34,59 @@
             <a href="registo.html"><img src=".\images\registo.png" alt="registo" class="imgRegisto" /></a>
         </div>
         <span class="hamburguer" onclick="openMenu()">&#9776;</span>
-    </header>
+    </header> <br> <br> <br>
 </div>
 
 <body>
-    <div class="form_wrapper">
-        <div class="form_container">
-            <div class="title_container">
-                <h2>Registo de Conta</h2>
-            </div>
-            <div class="row clearfix">
-                <div class="">
-                    <form>
-                        <div class="input_field">
-                            <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-                            <input type="email" name="email" placeholder="Email" required />
-                        </div>
-                        <div class="input_field">
-                            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                            <input type="password" name="password" placeholder="Password" required />
-                        </div>
-                        <div class="input_field">
-                            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                            <input type="password" name="password" placeholder="Re-type Password" required />
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col_half">
-                                <div class="input_field">
-                                    <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                                    <input type="text" name="name" placeholder="First Name" />
-                                </div>
-                            </div>
-                            <div class="col_half">
-                                <div class="input_field">
-                                    <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                                    <input type="text" name="name" placeholder="Last Name" required />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input_field radio_option">
-                            <input type="radio" name="radiogroup1" id="rd1" />
-                            <label for="rd1">Male</label>
-                            <input type="radio" name="radiogroup1" id="rd2" />
-                            <label for="rd2">Female</label>
-                        </div>
-                        <input class="button" type="submit" value="Register" />
-                    </form>
+    <main>
+        <div class="container" style="margin-left: -180px">
+            <form id="form" class="form">
+                <h2 style="color: #fff">Registo de Conta</h2> <br>
+                <div class="form-control">
+                    <label for="username" style="color: #fff">Nome</label>
+                    <input type="text" id="username" placeholder="Introduza o seu nome" />
+                    <small>Error Message</small>
                 </div>
-            </div>
+                <div class="form-control">
+                    <label for="email" style="color: #fff">Email</label>
+                    <input type="text" id="email" placeholder="Introduza o seu email" />
+                    <small>Error Message</small>
+                </div>
+                <!--<div class="form-control">
+                    <label for="gender">Gender</label>
+                    <input type="radio" name="gender" value="male"> Male 
+                    <input type="radio" name="gender" value="female"> Female 
+                    <small>Error Message</small>
+                </div> -->
+                <div class="radio-wrapper">
+                    <p style="color: #fff">GÉNERO</p>
+                    <div class="radio-container">
+                        <input checked="checked" type="radio" name="gender" value="1" id="male" />
+                        <label for="male">Masculino</label>
+                        <input type="radio" name="gender" value="0" id="female" />
+                        <label for="female">Feminino</label>
+                    </div>
+                </div> <br> <br>
+                
+                <label for="start" style="color: #fff">Data de nascimento:&nbsp;&nbsp;</label> 
+                <input type="date" id="start" name="trip-start" value="2022-22-22" min="1900-01-01"
+                    max="2022-12-31"> <br> <br>
+
+                <div class="form-control">
+                    <label for="password" style="color: #fff">Password</label>
+                    <input type="password" id="password" placeholder="Introduza a sua password" />
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <label for="password2" style="color: #fff">Confirme a sua Password</label>
+                    <input type="password" id="password2" placeholder="Volte a introduzir a password" />
+                    <small>Error Message</small>
+                </div>
+                <button>Registar</button>
+            </form>
         </div>
-    </div>
-</body>
+    </main>
+</body> <br>
 
 <footer>
     <div id="container">

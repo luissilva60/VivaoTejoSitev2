@@ -140,6 +140,9 @@ function initMap(){
     var input = document.getElementById('searchInput');
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
+
+
+
     var autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
 
@@ -187,6 +190,7 @@ function initMap(){
 
         infowindow1.setContent('<div><strong>' + place.name + '</strong><br>' + address);
         infowindow1.open(map, geocodingMarker);
+        lastOpenedInfoWindow = infowindow1;
 
         // Location details
         for (var i = 0; i < place.address_components.length; i++) {
@@ -333,8 +337,8 @@ async function getEmbarcacoes(){
         markerEmb[i].setIcon('./images/barco-a-vela.png')
 
         ParseEmbRota[i] = JSON.parse(embarcacoes[i].geojson);
-        console.log(ParseEmbRota[i])
-        //if(ParseEmbRota[i]){
+
+
             var shell = ParseEmbRota[i].coordinates;
             latLngArray[i] = [];
             for (let s = 0; s < shell.length; s++) {
@@ -376,7 +380,6 @@ async function getEmbarcacoes(){
             })
             animateCircle(rotasEmb[i]);
             rotasEmb[i].setMap(null);
-        //}
 
 
 

@@ -433,6 +433,7 @@ async function getEventos(){
         google.maps.event.addListener(markerEventos[i], 'click', (function(marker, i) {
             return function() {
                 closeLastOpenedInfoWindow();
+                console.log("aaaaa")
                 document.getElementById('floating-panel').style.display="inline-block"
                 document.getElementById("rota").style.display="none";
                 directionsRenderer.setMap(null);

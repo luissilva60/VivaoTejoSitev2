@@ -1,4 +1,4 @@
-$yellow:#f5ba1a;
+$blue:#f5ba1a;
 $black:#000000;
 $grey:#cccccc;
 
@@ -6,7 +6,7 @@ $grey:#cccccc;
 body {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 14px;
-	background: #f2f2f2;
+	background: #115c92;
 }
 .clearfix {
 	&:after {
@@ -111,9 +111,9 @@ body {
       background: #fafafa;
     }
     &[type="text"]:focus, &[type="email"]:focus, &[type="password"]:focus {
-      -webkit-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-      -moz-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-      box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
+      -webkit-box-shadow: 0 0 2px 1px #115c92;
+      -moz-box-shadow: 0 0 2px 1px #115c92;
+      box-shadow: 0 0 2px 1px #115c92;
       border: 1px solid $yellow;
       background: #fafafa;
     }

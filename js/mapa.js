@@ -3,6 +3,7 @@ var heatmap;
 var map;
 var markerEmb = [];
 var markerEventos = [];
+var markerClusterAll;
 
 var markerClusterEventos;
 var markerClusterEmb
@@ -74,17 +75,18 @@ function initMap(){
         maxZoom: 16,
     };
 
-    const clusterEmbOptions = {
+    const clusterOptions = {
         imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
 
         zoomOnClick: true,
         maxZoom: 16,
     };
+    markerClusterAll = new MarkerClusterer(map, [], clusterOptions);
 
+    markerClusterAll.setMap(map);
 
-
-    markerClusterEmb = new MarkerClusterer(map, [], clusterEmbOptions);
-    markerClusterEventos = new MarkerClusterer(map, [], clusterEventosOptions);
+    markerClusterEmb = new MarkerClusterer(map, [], clusterOptions);
+    markerClusterEventos = new MarkerClusterer(map, [], clusterOptions);
     getEventos();
 
 
@@ -93,6 +95,8 @@ function initMap(){
     getEmbarcacoes();
 
     getCais();
+
+
 
     map.addListener("click", function removebutton(){
         closeLastOpenedInfoWindow();
@@ -310,6 +314,7 @@ async function getEmbarcacoes(){
     var infowindowEmb = new google.maps.InfoWindow()
 
     var latLngArray = [];
+    var ParseEmbRota = []
 
 
 
@@ -327,50 +332,51 @@ async function getEmbarcacoes(){
 
         markerEmb[i].setIcon('./images/barco-a-vela.png')
 
-        var ParseEmbRota = JSON.parse(embarcacoes[i].geojson);
-        console.log(ParseEmbRota)
+        ParseEmbRota[i] = JSON.parse(embarcacoes[i].geojson);
+        console.log(ParseEmbRota[i])
+        //if(ParseEmbRota[i]){
+            var shell = ParseEmbRota[i].coordinates;
+            latLngArray[i] = [];
+            for (let s = 0; s < shell.length; s++) {
+                var pt = new google.maps.LatLng(shell[s][0], shell[s][1]);
+                latLngArray[i].push(pt);
+            }
 
-        var shell = ParseEmbRota.coordinates;
-        latLngArray[i] = [];
-        for (let s = 0; s < shell.length; s++) {
-            var pt = new google.maps.LatLng(shell[s][0], shell[s][1]);
-            latLngArray[i].push(pt);
-        }
+            const lineSymbol = {
+                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                scale: 8,
+                strokeColor: "#ffd15c",
+                fillColor: "#FFFFFF",
+                fillOpacity: 1,
+                strokeOpacity: 0.3,
+            };
+            const dashedLineSymbol = {
+                path: 'M 0,-1 0,1',
+                strokeOpacity: 1,
+                scale: 4
+            };
 
-        const lineSymbol = {
-            path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-            scale: 8,
-            strokeColor: "#ffd15c",
-            fillColor: "#FFFFFF",
-            fillOpacity: 1,
-            strokeOpacity: 0.3,
-        };
-        const dashedLineSymbol = {
-            path: 'M 0,-1 0,1',
-            strokeOpacity: 1,
-            scale: 4
-        };
+            rotasEmb[i] = new google.maps.Polyline({
+                path: latLngArray[i],
+                icons: [
 
-        rotasEmb[i] = new google.maps.Polyline({
-            path: latLngArray[i],
-            icons: [
+                    {
+                        icon: lineSymbol,
+                        offset: "100%",
+                    }, {
+                        icon: dashedLineSymbol,
+                        offset: '0',
+                        repeat: '20px'
+                    }],
 
-                {
-                    icon: lineSymbol,
-                    offset: "100%",
-                }, {
-                    icon: dashedLineSymbol,
-                    offset: '0',
-                    repeat: '20px'
-                }],
-
-            geodesic: true,
-            strokeColor:"#0000FF",
-            strokeOpacity:0,
-            strokeWeight:2
-        })
-        animateCircle(rotasEmb[i]);
-        rotasEmb[i].setMap(null);
+                geodesic: true,
+                strokeColor:"#0000FF",
+                strokeOpacity:0,
+                strokeWeight:2
+            })
+            animateCircle(rotasEmb[i]);
+            rotasEmb[i].setMap(null);
+        //}
 
 
 
@@ -382,7 +388,7 @@ async function getEmbarcacoes(){
                 directionsRenderer.setMap(null);
 
                 for (var y = 0; y < rotasEmb.length ; y++){
-                    rotasEmb[y].setMap(null);
+                     rotasEmb[y].setMap(null);
                 }
 
                 rotasPos = i;
@@ -391,10 +397,16 @@ async function getEmbarcacoes(){
                 infowindowEmb.setContent("<h2>" + embarcacoes[i].embarcacao_name + "</h2><p> " + embarcacoes[i].embarcacao_info + "</p> Proprietário: "+ embarcacoes[i].utilizador_name );
 
                 infowindowEmb.open(map, marker);
+
+
+
                 lastOpenedInfoWindow = infowindowEmb;
             }
         })(markerEmb[i], i));
     }
+
+    markerClusterAll.addMarkers(markerEmb)
+
 
 
 
@@ -424,6 +436,7 @@ async function getEventos(){
         google.maps.event.addListener(markerEventos[i], 'click', (function(marker, i) {
             return function() {
                 closeLastOpenedInfoWindow();
+                console.log("aaaaa")
                 document.getElementById('floating-panel').style.display="inline-block"
                 document.getElementById("rota").style.display="none";
                 directionsRenderer.setMap(null);
@@ -439,6 +452,9 @@ async function getEventos(){
             }
         })(markerEventos[i], i));
     }
+
+
+    markerClusterAll.addMarkers(markerEventos)
 
 
 }
@@ -540,6 +556,8 @@ function clearMarkers() {
         markerEmb[i].setMap(null);
     }
     heatmap.setMap(null);
+    markerClusterAll.removeMarkers(markerEventos);
+    markerClusterAll.removeMarkers(markerEmb);
     markerClusterEventos.removeMarkers(markerEventos);
     markerClusterEmb.removeMarkers(markerEmb);
     document.getElementById("rota").style.display="none";
@@ -575,6 +593,8 @@ function showAllMarkers() {
     for(i in markerEventos){
         markerEventos[i].setMap(map);                                                                                                                                                   /*MADE BY Luís Silva*/
     }
+    markerClusterAll    .addMarkers(markerEmb)
+    markerClusterAll.addMarkers(markerEventos)
 }
 
 

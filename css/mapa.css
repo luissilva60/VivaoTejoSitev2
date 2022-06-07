@@ -28,7 +28,7 @@
 
 
 /* CSS */
-.button{
+.buttonLocation{
     background-color: #0095ff;
     border: 1px solid transparent;
     border-radius: 3px;
@@ -54,16 +54,16 @@
     white-space: nowrap;
 }
 
-.button:hover,
-.button:focus {
+.buttonLocation:hover,
+.buttonLocation:focus {
     background-color: #07c;
 }
 
-.button:focus {
+.buttonLocation:focus {
     box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
 }
 
-.button:active {
+.buttonLocation:active {
     background-color: #0064bd;
     box-shadow: none;
 }

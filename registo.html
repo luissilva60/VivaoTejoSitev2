@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Marinha do Tejo</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/register.scss" />
+    <link rel="shortcut icon" href="./images/marinhaLogoIcon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <!--<script src="script.js"></script>-->
+    <script src="js/app.js"></script>
+</head>
+
+<div>
+    <header class="header">
+        <a href="index.html"><img src=".\images\MARINHA DO TEJO LOGO.jpg" alt="Logo Marinha do Tejo"
+                class="img-Logo" /></a>
+
+        <div id="myMenu" class="dropdown">
+            <a href="javascript: void(0)" class="buttonX" onclick="closeMenu()">&times;</a>
+            <div class="dropdown-lists">
+                <img src=".\images\MARINHA DO TEJO LOGO.png" alt="Logo Marinha do Tejo Banco" class="img-WhiteLogo" />
+                <a href="#" class="menuText">Quem Somos?</a>
+                <a href="eventos.html" class="menuText">Eventos</a>
+                <a href="#" class="menuText">Galeria</a>
+                <a href="mapa.html" class="menuText">Mapa</a>
+                <a href="#" class="menuText">Loja</a>
+                <a href="contactos.html" class="menuText">Contactos</a>
+            </div>
+            <a href="login.html"><img src=".\images\login.png" alt="login" class="imgLogin" /></a>
+            <a href="registo.html"><img src=".\images\registo.png" alt="registo" class="imgRegisto" /></a>
+        </div>
+        <span class="hamburguer" onclick="openMenu()">&#9776;</span>
+    </header>
+</div>
+
+<body>
+    <div class="form_wrapper">
+        <div class="form_container">
+            <div class="title_container">
+                <h2>Registo de Conta</h2>
+            </div>
+            <div class="row clearfix">
+                <div class="">
+                    <form>
+                        <div class="input_field">
+                            <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                            <input type="email" name="email" placeholder="Email" required />
+                        </div>
+                        <div class="input_field">
+                            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="password" name="password" placeholder="Password" required />
+                        </div>
+                        <div class="input_field">
+                            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="password" name="password" placeholder="Re-type Password" required />
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col_half">
+                                <div class="input_field">
+                                    <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                                    <input type="text" name="name" placeholder="First Name" />
+                                </div>
+                            </div>
+                            <div class="col_half">
+                                <div class="input_field">
+                                    <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                                    <input type="text" name="name" placeholder="Last Name" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input_field radio_option">
+                            <input type="radio" name="radiogroup1" id="rd1" />
+                            <label for="rd1">Male</label>
+                            <input type="radio" name="radiogroup1" id="rd2" />
+                            <label for="rd2">Female</label>
+                        </div>
+                        <input class="button" type="submit" value="Register" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <div id="container">
+        <img src=".\images\Rectangle 7.png" class="rectangleFooter" />
+
+        <img src=".\images\QUEM SOMOSNOSSA HISTÓRIANOSSAS EMBARCAÇÕESSERVIÇOS EDUCATIVOS.png" class="quemSomosText" />
+        <img src=".\images\EVENTOSMAPA DE EVENTOSCRIAR EVENTO.png" class="eventosText" />
+        <img src=".\images\GALERIAFOTOGRAFIASVÍDEOSSUBMETER.png" class="galeriaText" />
+        <img src=".\images\LOJAESTACIONÁRIOT-SHIRTSTOTE-BAGS.png" class="lojaText" />
+        <img src=".\images\CONTACTOSCONTACTARONDE ESTAMOS.png" class="contactosText" />
+        <img src=".\images\SEGUE-NOSFACEBOOKINSTAGRAMYOUTUBE.png" class="segueText" />
+    </div>
+</footer>
+
+</html>

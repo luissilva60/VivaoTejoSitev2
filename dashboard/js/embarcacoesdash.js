@@ -21,7 +21,7 @@ $(document).ready(
                           <button type="button" id="btnRejeitar" class="btn btn-danger">Rejeitar</button>
                         </div>
                         <div class="btn-group">
-                          <button type="button" onclick="aceitar(${result.embarcacao_id})" id="btnAceitar" class="btn btn-success">Aceitar</button>
+                          <button type="button" onclick="(aceitar(${result.embarcacao_id})" id="btnAceitar" class="btn btn-success">Aceitar</button>
                         </div>`;
                 for (let i in result)
                 {
@@ -60,7 +60,7 @@ $(document).ready(function () {
               info: jQuery('[name=embarcacao_info]').val(),
               propId: user.utilizador_id,
               pos: jQuery('[name=embarcacao_pos]').val(),
-              rota: jQuery('[name=rota]').val()
+              rota: ['LINESTRING(38.65475142061314 -8.995903878996437,38.65762804191019 -9.002536689744177,38.66714851297249 -9.010714991294767,38.678323006908926 -9.023183234118004,38.692853811334636 -9.066632193034929,38.7496420393992 -9.053848038098723, 38.79279172202453 -9.035704781063428)']
           },
           dataType: 'json',
           success: function(result) {
@@ -72,25 +72,25 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+  
+  var barcos = JSON.parse(window.localStorage.getItem('barcos'));
 
   $('#btnAceitar').on('click', function(event) {
 
+    
       event.preventDefault();
 
-      $("#btnAceitar").prop("disabled", true);
+      $("#btnAceitar").prop("disabled", true); 
+      
+      $.ajax({
+      url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/embarcacao/update/verification/" + barcos.embarcacao_id,
+      type: "PUT",
+      dataType: 'json',
+      success: function(result) {
+          console.log("SUCCESS : ", result);
+          $("#btnAceitar").prop("disabled", false);
+          alert("Embarcação Aceite")
+      }
+    });
   });
 });
-
-function aceitar(id){
-  var barcos = JSON.parse(window.localStorage.getItem('barcos'));
-    $.ajax({
-    url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/embarcacao/update/verification/" + barcos.embarcacao_id,
-    type: "PUT",
-    dataType: 'json',
-    success: function(result) {
-        console.log("SUCCESS : ", result);
-        $("#btnAceitar").prop("disabled", false);
-        alert("Embarcação Aceite")
-    }
-  });
-}

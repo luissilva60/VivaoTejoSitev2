@@ -1042,10 +1042,10 @@ div.radio-container label {
 }
 
 .artigosBorder{
-    position: absolute;
-    margin-top: 85px;
-    width: 1510px;
-    height: 425px;
+  position: absolute;
+  margin-top: 85px;
+  width: 1510px;
+  height: 425px;
 }
 
 .artigoTitleDetails{
@@ -1058,11 +1058,23 @@ div.radio-container label {
   margin-top: 100px;
 }
 
+.artigoSubtitleDetails{
+  position: absolute;
+  font-size: 27px;
+  font-weight: 100;
+  color: #115c92;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: -20px;
+  margin-left: 40px;
+  width: 500px;
+}
+
 .artigoInfoDetails{
-    position: absolute;
-    font-size: 21px;
-    color: #115c92;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 40px;
-    width: 500px;
+  position: absolute;
+  font-size: 21px;
+  color: #115c92;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 120px;
+  margin-left: 40px;
+  width: 500px;
 }

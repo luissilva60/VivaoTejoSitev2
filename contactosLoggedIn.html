@@ -8,8 +8,6 @@
     <link rel="shortcut icon" href="./images/marinhaLogoIcon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
     <!--<script src="script.js"></script>-->
-    <script src="js/app.js"></script>
-    <script src="js/user.js"></script>
 </head>
 
 <div>
@@ -21,12 +19,13 @@
                 <img src=".\images\MARINHA DO TEJO LOGO.png" alt="Logo Marinha do Tejo Banco" class="img-WhiteLogo"/>
                 <a href="#" class="menuText">Quem Somos?</a>
                 <a href="eventosLoggedIn.html" class="menuText">Eventos</a>
+                <a href="noticias.html" class="menuText">Notícias</a>
                 <a href="#" class="menuText">Galeria</a>
                 <a href="mapaLoggedIn.html" class="menuText">Mapa</a>
                 <a href="#" class="menuText">Loja</a>
                 <a href="contactosLoggedIn.html" class="menuText">Contactos</a>
             </div>
-            <a href=".\dashboard\starter.html"><img src=".\images\Dashboard.png" alt="dashboard" class="imgDashboard" id="dashboardButton"></a>
+            <a href=".\dashboard\starter.html"><img src=".\images\Dashboard.png" alt="dashboard" class="imgDashboard" id="dashboardButton" style="display:none"></a>
             <a href="index.html" onclick="alert('User Logged Out')"><img src=".\images\logout.png" alt="logout" class="imgLogout"></a>
         </div>
         <span class="hamburguer" onclick="openMenu()">&#9776;</span>
@@ -62,5 +61,7 @@
         <img src=".\images\SEGUE-NOSFACEBOOKINSTAGRAMYOUTUBE.png" class="segueText">
     </div>
 </footer>
-
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/user.js"></script>
 </html>

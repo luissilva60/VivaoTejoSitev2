@@ -16,13 +16,7 @@ $(document).ready(
                 console.log(obj);
                 let tabela = document.querySelector("#tableembpending")
                 let html = ""
-                let buttons = 
-                `<td><div class="btn-group">
-                          <button type="button" id="btnRejeitar" class="btn btn-danger">Rejeitar</button>
-                        </div>
-                        <div class="btn-group">
-                          <button type="button" onclick="aceitar(${result.embarcacao_id})" id="btnAceitar" class="btn btn-success">Aceitar</button>
-                        </div>`;
+
                 for (let i in result)
                 {
                     var contentString = result[i].lat + ", " + result[i].long;
@@ -32,7 +26,12 @@ $(document).ready(
                     <th>${result[i].embarcacao_info}</th>
                     <th>${result[i].utilizador_name}</th>
                     <th>${contentString} </th>
-                    ${buttons}</tr>`
+                    <td><div class="btn-group">
+                          <button type="button" id="btnRejeitar" onclick="rejeitar(${result[i].embarcacao_id})" class="btn btn-danger">Rejeitar</button>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" onclick="aceitar(${result[i].embarcacao_id})" id="btnAceitar" class="btn btn-success">Aceitar</button>
+                        </div></tr>`
                 }
 
                 tabela.innerHTML = html
@@ -84,7 +83,7 @@ $(document).ready(function () {
 function aceitar(id){
   var barcos = JSON.parse(window.localStorage.getItem('barcos'));
     $.ajax({
-    url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/embarcacao/update/verification/" + barcos.embarcacao_id,
+    url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/embarcacao/update/verification/" + id,
     type: "PUT",
     dataType: 'json',
     success: function(result) {
@@ -94,3 +93,18 @@ function aceitar(id){
     }
   });
 }
+
+function rejeitar(id){
+  var barcos = JSON.parse(window.localStorage.getItem('barcos'));
+  $.ajax({
+    url: "https://cors-anywhere.herokuapp.com/https://vivaotejo.herokuapp.com/api/embarcacao/" + id,
+    type: "DELETE",
+    dataType: 'json',
+    success: function(result) {
+      console.log("SUCCESS : ", result);
+      $("#btnAceitar").prop("disabled", false);
+      alert("Embarcação Rejeitada")
+    }
+  });
+}
+

@@ -94,14 +94,14 @@ $(document).ready(function () {
                 name: jQuery('[name=utilizador_name]').val(),
                 bdate: jQuery('[name=utilizador_bdate]').val(),
                 email: jQuery('[name=utilizador_email]').val(),
-                gender: 'M',
+                gender: jQuery('[name=utilizador_gender]').val(),
                 password: jQuery('[name=utilizador_password]').val()
             },
             dataType: 'json',
             success: function(result) {
                 console.log("SUCCESS : ", result);
                 $("#btnRegistar").prop("disabled", false);
-                //window.location.href = "login.html"
+                window.location.assigned = "login.html"
             }
         });
     });

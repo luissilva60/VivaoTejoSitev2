@@ -17,43 +17,13 @@ $(document).ready(
                 let html = ""
                 let buttons = 
                 "<td><div class='btn-group'>" +
-                "<button type='button' class='btn btn-danger'>Action</button>" +
-                "<button type='button' class='btn btn-danger dropdown-toggle dropdown-hover dropdown-icon' data-toggle='dropdown'>" +
-                  "<span class='sr-only'>Toggle Dropdown</span>" +
-                "</button>" +
-                    "<div class='dropdown-menu' role='menu'>" +
-                        "<a class='dropdown-item' href='#'>Action</a>" +
-                        "<a class='dropdown-item' href='#'>Another action</a>" +
-                        "<a class='dropdown-item' href='#'>Something else here</a>" +
-                    "<div class='dropdown-divider'></div>" +
-                    "<a class='dropdown-item' href='#'>Separated link</a>" +
-                    "</div>" +
+                "<button type='button' class='btn btn-danger'>Apagar</button>" +
                 "</div>" +
                 "<div class='btn-group'>" +
-                "<button type='button' class='btn btn-success'>Action</button>" +
-                "<button type='button' class='btn btn-success dropdown-toggle dropdown-hover dropdown-icon' data-toggle='dropdown'>" +
-                  "<span class='sr-only'>Toggle Dropdown</span>" +
-                "</button>" +
-                    "<div class='dropdown-menu' role='menu'>" +
-                        "<a class='dropdown-item' href='#'>Action</a>" +
-                        "<a class='dropdown-item' href='#'>Another action</a>" +
-                        "<a class='dropdown-item' href='#'>Something else here</a>" +
-                    "<div class='dropdown-divider'></div>" +
-                    "<a class='dropdown-item' href='#'>Separated link</a>" +
-                    "</div>" +
+                "<button type='button' class='btn btn-warning'>Role Down</button>" +
                 "</div>" +
                 "<div class='btn-group'>" +
-                "<button type='button' class='btn btn-warning'>Action</button>" +
-                "<button type='button' class='btn btn-warning dropdown-toggle dropdown-hover dropdown-icon' data-toggle='dropdown'>" +
-                  "<span class='sr-only'>Toggle Dropdown</span>" +
-                "</button>" +
-                    "<div class='dropdown-menu' role='menu'>" +
-                        "<a class='dropdown-item' href='#'>Action</a>" +
-                        "<a class='dropdown-item' href='#''>Another action</a>" +
-                        "<a class='dropdown-item' href='#'>Something else here</a>" +
-                    "<div class='dropdown-divider'></div>" +
-                    "<a class='dropdown-item' href='#'>Separated link</a>" +
-                    "</div>" +
+                "<button type='button' class='btn btn-success'>Role Up</button>" +
                 "</div>" +
                 "<div class='btn-group'>" ;
                 for (let i in result)

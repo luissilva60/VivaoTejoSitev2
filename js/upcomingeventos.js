@@ -11,7 +11,6 @@ async function getEventos() {
     document.getElementById("tituloEventoDois").textContent = eventos[1].eventos_name
     document.getElementById("textoEventoDois").textContent = eventos[1].data + "            LOCAL:  " + eventos[1].eventos_local_name
     document.getElementById("tituloEventoTres").textContent = eventos[2].eventos_name
-
     document.getElementById("textoEventoTres").textContent = eventos[2].data + "            LOCAL:  " + eventos[2].eventos_local_name
 
     const evento1Button = document.getElementById('evento1btn');

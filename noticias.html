@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
     <!--<script src="script.js"></script>-->
     <script src="js/app.js"></script>
-    <script src="plugins/jquery/jquery.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
 
 </head>
@@ -37,34 +37,25 @@
 </div>
 
 <body>
-    <img src=".\images\mapImage.png" alt="Mapa Eventos" class="eventosMap">
-    <img src=".\images\Group 142.png" alt="Selecionar Evento" class="eventosOptions">
+    <img src=".\images\Group 137.png" alt="Mapa Eventos" class="eventosMap">
 
-    <p class="eventoUmTitulo" id="eventos_name"></p>
-    <p class="eventoUmInfoTitulo" id="eventos_data"><br></p>
-    <p class="eventoUmInfoTitulo" id="eventos_starttime"><br></p>
-    <p class="eventoUmInfoTitulo" id="eventos_endtime"><br></p>
-    <p class="eventoUmInfo" id="eventos_info"></p>
+    <p class="artigoUmTitulo" id="tituloArtigoUm"></p>
+    <p class="artigoUmInfo" id="textoArtigoUm"></p>
 
-    <div id="map" class="interactiveMapEvent"></div> 
+    <p class="artigoDoisTitulo" id="tituloArtigoDois"></p>
+    <p class="artigoDoisInfo" id="textoArtigoDois"></p>
 
-    <div id= "floating-panel" class="our_text_box_evento_details">
-        <p style="font-weight: bold;font-size:medium;color: #fff" > Método de Transporte: </p>
-        <div class="box">
-            <select id="mode">
-                <option value="DRIVING">Condução</option>
-                <option value="WALKING">Caminhar</option>
-                <option value="BICYCLING">Bicicleta</option>
-                <option value="TRANSIT">Transportes</option>
-            </select>
-        </div>
-        <button id="btnrota">Rota</button>
-    </div>
+    <p class="artigoTresTitulo" id="tituloArtigoTres"></p>
+    <p class="artigoTresInfo" id="textoArtigoTres"></p>
+
+    <a href="artigoDetails.html" id="artigo1btn" ><img src=".\images\rightArrow.png" class="setaArtigoUm"/></a>
+    <a href="artigoDetails.html" id="artigo2btn" ><img src=".\images\rightArrow.png" class="setaArtigoDois"/></a>
+    <a href="artigoDetails.html" id="artigo3btn" ><img src=".\images\rightArrow.png" class="setaArtigoTres"/></a>
+
+    <img src=".\images\noticiaFoto.png" alt="Foto Caravela" class="artigoFoto">
 
     <!--<img src=".\images\SEPARADOR QUERES ORGANIZAR.png" alt="Separador Eventos" class="sugerirEvento">-->
 </body>
 
-<script src="./js/eventos.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyAeXJMCul0dV0qlry9bSDTx9K9dKRLJZSY&libraries=visualization,places&callback=initMap"></script>
-
+<script src="./js/upcomingnoticias.js"></script>
 </html>

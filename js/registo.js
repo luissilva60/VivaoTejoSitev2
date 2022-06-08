@@ -81,7 +81,7 @@
             }); */
 
 $(document).ready(function () {
-    $('#btnRegistar').on('click', function(event) {
+    $('#btnRegistar').on('click', function (event) {
         // prevent form default behaviour
         event.preventDefault();
 
@@ -98,10 +98,11 @@ $(document).ready(function () {
                 password: jQuery('[name=utilizador_password]').val()
             },
             dataType: 'json',
-            success: function(result) {
+            success: function (result) {
                 console.log("SUCCESS : ", result);
+                window.location.href = "login.html"
                 $("#btnRegistar").prop("disabled", false);
-                window.location.assigned = "login.html"
+                //window.location.href = "file:///C:/Users/pedro/OneDrive/Ambiente%20de%20Trabalho/MarinhaDoTejo/login.html"
             }
         });
     });

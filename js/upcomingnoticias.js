@@ -5,14 +5,14 @@ async function getartigos() {
     const artigos = await response.json();
     console.log(artigos);
 
-    document.getElementById("artigoUmTitulo").textContent = artigos[0].artigos_title
-    document.getElementById("artigoUmInfo").textContent = artigos[0].data 
+    document.getElementById("tituloArtigoUm").textContent = artigos[0].artigos_title
+    document.getElementById("textoArtigoUm").textContent = "Data: "+ artigos[0].data
 
-    document.getElementById("artigoDoisTitulo").textContent = artigos[1].artigos_title
-    document.getElementById("artigoDoisInfo").textContent = artigos[1].data
+    document.getElementById("tituloArtigoDois").textContent = artigos[1].artigos_title
+    document.getElementById("textoArtigoDois").textContent = "Data: "+ artigos[1].data
 
-    document.getElementById("artigoTresTitulo").textContent = artigos[2].artigos_name
-    document.getElementById("artigoTresInfo").textContent = artigos[2].data
+    document.getElementById("tituloArtigoTres").textContent = artigos[2].artigos_title
+    document.getElementById("textoArtigoTres").textContent = "Data: "+ artigos[2].data
 
     const artigo1Button = document.getElementById('artigo1btn');
     const artigo2Button = document.getElementById('artigo2btn');

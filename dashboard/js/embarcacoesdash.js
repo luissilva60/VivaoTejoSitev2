@@ -13,7 +13,8 @@ $(document).ready(
                 $('#name').text(result)
                 var obj = JSON.stringify(result);
                 window.localStorage.setItem('barcos', JSON.stringify(result));
-                console.log(obj);
+                console.log("aaaa"+ obj);
+
                 let tabela = document.querySelector("#tableembpending")
                 let html = ""
 

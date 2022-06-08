@@ -952,6 +952,14 @@ div.radio-container label {
   top: -424px;
 }
 
+.artigoFotoDetails{
+  position: absolute;
+  width: 700px;
+  height: 404px;
+  margin-left: 799px;
+  top: 182px;
+}
+
 .artigoUmTitulo{
     position: relative;
     font-size: 35px;
@@ -959,7 +967,7 @@ div.radio-container label {
     color: #115c92;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 40px;
-    margin-top: 85px;
+    margin-top: 120px;
 }
 
 .artigoUmInfo{
@@ -1033,10 +1041,27 @@ div.radio-container label {
   top: -80px;
 }
 
-.artigoFotoDetails{
-  position: relative;
-  width: 700px;
-  height: 404px;
-  margin-left: 799px;
-  top: -118px;
+.artigosBorder{
+    position: absolute;
+    margin-top: 85px;
+    width: 1510px;
+    height: 425px;
 }
+
+.artigoTitleDetails{
+  position: relative;
+  font-size: 35px;
+  font-weight: bolder;
+  color: #115c92;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 40px;
+  margin-top: 100px;
+}
+
+.artigoInfoDetails{
+    position: absolute;
+    font-size: 21px;
+    color: #115c92;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 40px;
+    width: 500px;
